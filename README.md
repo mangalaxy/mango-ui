@@ -1,4 +1,4 @@
-# mango-ui
+# ManGoStart UI
 MGS frontend part of the application built on React.js.
 
 ## Local Development
