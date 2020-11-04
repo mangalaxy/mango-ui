@@ -43,6 +43,8 @@
     padding: 12px 0;
     border-top: 1px solid #BDBDBD;
     cursor: pointer; }
+    .mobile-content .mobile-menu__item .sign-container__item {
+      margin-right: 20px; }
     .mobile-content .mobile-menu__item .dropdown-chevron {
       position: relative;
       transform: translateY(0px); }

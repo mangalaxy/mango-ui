@@ -16,7 +16,6 @@
   }
 
   .logoContainer, .authLinks {
-    width: 200px;
   }
 
   .logo {
@@ -47,7 +46,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-right: 10px;
+
+    .sign-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
   }
 
   .menuItem {
@@ -163,6 +167,12 @@
   .menuContainer {
     .menuItemsContainer {
       display: none;
+
+      .sign-container {
+        &__item {
+          margin-right: 20px;
+        }
+      }
     }
   }
 }

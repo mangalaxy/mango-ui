@@ -69,7 +69,8 @@ const MobileMenu = ({openLoginForm, openSignUpTalent, openSignUpEmployer, closeM
             </li>
             <li className='mobile-menu__item'
                 onClick={() => toggleMenuOpen(!openSubmenu)}>
-              <div>Sign up
+              <div className='sign-container'>
+                  <span className='sign-container__item'>Sign up</span>
                 <Down className={`dropdown-chevron ${openSubmenu ?
                     'rotated' :
                     ''}`}/>

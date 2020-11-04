@@ -12,6 +12,10 @@
       background-color: $COLOR_SECONDARY_GREY;
       border-right: 2px;
 
+      &--grey {
+        background-color: $gray-600;
+      }
+
       &:nth-child(2n) {
         margin: 7px 0;
       }

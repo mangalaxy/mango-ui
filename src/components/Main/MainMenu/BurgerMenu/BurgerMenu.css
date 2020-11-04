@@ -9,6 +9,8 @@
     height: 3px;
     background-color: #e0e0e0;
     border-right: 2px; }
+    .burger-container .menu-button__line--grey {
+      background-color: #757575; }
     .burger-container .menu-button__line:nth-child(2n) {
       margin: 7px 0; }
 
