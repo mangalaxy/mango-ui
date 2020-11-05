@@ -207,6 +207,10 @@
       flex-wrap: wrap;
     }
 
+    .blog-item__text {
+      margin-top: 20px;
+    }
+
     .blog-item__header {
       font-size: 28px;
       margin-bottom: 20px;
@@ -223,10 +227,6 @@
 @media (max-width: 767px) {
   .blog-container {
     flex-wrap: wrap;
-
-    .blog-item__text {
-      margin-top: 20px;
-    }
 
     .blog-content {
       width: 100%;
