@@ -64,25 +64,26 @@ function Blog(props) {
                                 ability and potential. Here are some tips to help you achieve that goal.
                             </div>
                         </div>
-                        <a className='blog-item__link'>continue reading</a>
+                        <a className='blog-item__link' href="http://localhost:3000/post">continue reading</a>
                     </li>
                 </ul>
             </div>
             <div className='blog-sidebar'>
                 <form className='search-form'>
                     <input className='search-input' placeholder='Search'/>
-                    <span className='search-icon'><img src={search}/></span>
+                    <span className='search-icon'>
+                        <img src={search} alt="search-icon" />
+                    </span>
                 </form>
-                <h2 className='posts-title'>latest posts</h2>
+                <h2 className='posts-title'>Latest posts</h2>
                 <div className='posts-menu'>
                     <ul className='posts-list'>
                         <li className="posts-list__item">9 tips for effective interviewing</li>
                         <li className="posts-list__item">Why is important to be great
                             developer</li>
                         <li className="posts-list__item">Salary expectations in 2019</li>
-                        <li className="posts-list__item">Hired over 1M in Amazon company </li>
-                        <li className="posts-list__item">How to Attract, Source and Retain Top
-                            Tech Talent </li>
+                        <li className="posts-list__item">Hired over 1M in Amazon company</li>
+                        <li className="posts-list__item">How to Attract, Source and Retain Top Tech Talent</li>
                     </ul>
                 </div>
                 <h2 className='posts-title'>categories</h2>
