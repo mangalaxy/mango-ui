@@ -10,6 +10,7 @@ import About from '../../components/Main/About/About';
 import JobsRolesSelect
   from '../../components/Main/Jobs/JobsRolesSelect/JobsRoleSelect';
 import JobsByRole from '../../components/Main/Jobs/JobsByRole/JobsByRole';
+import JobWithDetails from '../../components/Main/Jobs/JobWithDetails/JobWithDetails';
 import PrivacyPolicy from '../../components/Main/PrivacyPolicy/PrivacyPolicy';
 import TermsOfUse from '../../components/Main/TermsOfService/TermsOfUse';
 import Support from '../../components/Main/Support/Support';
@@ -89,6 +90,8 @@ const MainPage = ({location}) => {
                    component={JobsRolesSelect}/>
             <Route exact path={routes.COMMON.FIND_JOB + '/:jobRole'}
                    component={JobsByRole} url={routes.COMMON.FIND_JOB}/>
+            <Route exact path={routes.JOB_WITH_DETAILS + '/:job'}
+                   component={JobWithDetails}/>
             <Route exact path={routes.COMMON.ABOUT} component={About}/>
             <Route exact path={routes.COMMON.PRIVACY_POLICY}
                    component={PrivacyPolicy}/>
