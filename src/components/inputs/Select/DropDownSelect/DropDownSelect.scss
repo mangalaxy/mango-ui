@@ -23,6 +23,8 @@
     outline: none;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
+    .react-dropdown-select-dropdown-handle {}
+
     &:focus-within {
       box-shadow: none;
     }
