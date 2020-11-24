@@ -7,8 +7,7 @@ import ForEmployers from '../../components/Main/ForEmployers/ForEmployers';
 import Home from '../../components/Main/Home/Home';
 import Footer from '../../components/Main/Footer/Footer';
 import About from '../../components/Main/About/About';
-import JobsRolesSelect
-  from '../../components/Main/Jobs/JobsRolesSelect/JobsRoleSelect';
+import JobsRoleSelect from '../../components/Main/Jobs/JobsRolesSelect/JobsRoleSelect';
 import JobsByRole from '../../components/Main/Jobs/JobsByRole/JobsByRole';
 import JobWithDetails from '../../components/Main/Jobs/JobWithDetails/JobWithDetails';
 import PrivacyPolicy from '../../components/Main/PrivacyPolicy/PrivacyPolicy';
@@ -18,8 +17,7 @@ import Blog from '../../components/Main/Blog/Blog';
 import {renderModal} from '../../services/renderModal';
 import Login from '../../components/Auth/Login/Login';
 import SignUpTalent from '../../components/Auth/SignUpTalent/SignUpTalent';
-import SignUpEmployer
-  from '../../components/Auth/SignUpEmployer/SignUpEmployer';
+import SignUpEmployer from '../../components/Auth/SignUpEmployer/SignUpEmployer';
 import Post from '../../components/Main/Post/Post';
 import './Main.scss';
 
@@ -87,7 +85,7 @@ const MainPage = ({location}) => {
             <Route exact path={routes.COMMON.FOR_EMPLOYERS}
                    component={ForEmployers}/>
             <Route exact path={routes.COMMON.FIND_JOB}
-                   component={JobsRolesSelect}/>
+                   component={JobsRoleSelect}/>
             <Route exact path={routes.COMMON.FIND_JOB + '/:jobRole'}
                    component={JobsByRole} url={routes.COMMON.FIND_JOB}/>
             <Route exact path={routes.JOB_WITH_DETAILS + '/:job'}

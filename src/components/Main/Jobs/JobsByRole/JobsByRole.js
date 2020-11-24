@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
-import {GreenDash} from '../../Home/Home';
 import './jobsByRole.scss';
 import {reduxForm} from 'redux-form';
 import jobRolesData from '../../../../constants/jobRolesData';
 import RoleCategory from './RoleCategory/RoleCategory';
-import DropDownSelect from '../../../inputs/Select/DropDownSelect/DropDownSelect';
 import JobItem from "./JobItem/JobItem";
 import ReactPaginate from 'react-paginate';
+import Select from 'react-select'
 
 
 const mockRoleData = {
@@ -107,9 +106,8 @@ class JobsByRole extends Component {
                   <div className='job-role__tag'>Designer</div>
               </div>
             <h3 className='job-role__title'>
-              {mockRoleData.name} job
+              {mockRoleData.name}
             </h3>
-            <GreenDash/>
             <div className="job-role__description">
               <p>{mockRoleData.description}</p>
               <p>{mockRoleData.description}</p>
@@ -118,27 +116,54 @@ class JobsByRole extends Component {
               {categories}
             </div>
             <div className='job-role__filters'>
-                <div className='job-role__filter'>Filter by:</div>
-                <DropDownSelect
-                    contentRenderer={() => 'Companies'}
-                    className='job-role__filter'
-                    searchable={false}
+                <div className='job-role-filter-text'>Filter by:</div>
+                <Select
                     options={mockCountries}
-                    multi={true}
+                    onChange={() => {}}
+                    className='job-role-filter-container'
+                    classNamePrefix="job-role-filter"
+                    placeholder='Companies'
+                    theme={theme => ({
+                        ...theme,
+                        borderRadius: 0,
+                        colors: {
+                            ...theme.colors,
+                            primary25: 'unset',
+                            primary: 'unset',
+                        },
+                    })}
                 />
-                <DropDownSelect
-                    contentRenderer={() => 'Location'}
-                    className='job-role__filter'
-                    searchable={false}
+                <Select
                     options={mockCities}
-                    multi={true}
+                    onChange={() => {}}
+                    className='job-role-filter-container'
+                    classNamePrefix="job-role-filter"
+                    placeholder='Location'
+                    theme={theme => ({
+                        ...theme,
+                        borderRadius: 0,
+                        colors: {
+                            ...theme.colors,
+                            primary25: 'unset',
+                            primary: 'unset',
+                        },
+                    })}
                 />
-                <DropDownSelect
-                    contentRenderer={() => 'Industries'}
-                    className='job-role__filter'
-                    searchable={false}
+                <Select
                     options={mockIndustries}
-                    multi={true}
+                    onChange={() => {}}
+                    className='job-role-filter-container'
+                    classNamePrefix="job-role-filter"
+                    placeholder='Industries'
+                    theme={theme => ({
+                        ...theme,
+                        borderRadius: 0,
+                        colors: {
+                            ...theme.colors,
+                            primary25: 'unset',
+                            primary: 'unset',
+                        },
+                    })}
                 />
             </div>
             <div className='jobs-list'>

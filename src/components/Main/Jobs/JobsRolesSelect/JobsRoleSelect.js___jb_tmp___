@@ -2,7 +2,6 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import routes from '../../../../constants/routes.json';
 import jobRolesData from '../../../../constants/jobRolesData';
-import Heading from "../../../typography/Heading";
 
 import './jobsRoleSelect.scss';
 
@@ -17,11 +16,11 @@ const JobRoleCard = ({role}) => (
     </div>
 );
 
-const JobsRoleSelect = () => {
+const JobsRolesSelect = () => {
   return (
       <div id='main-job-role-select'>
         <div className='contentContainer'>
-          <Heading>Find a job</Heading>
+          <h2 className="mainHeaderH2">Find a job</h2>
           <div className="description">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
               Distinctio esse facilis libero minus molestiae qui suscipit!
@@ -36,10 +35,10 @@ const JobsRoleSelect = () => {
               pariatur quasi quia, tenetur voluptatum?
             </p>
           </div>
-          <Heading>Job roles</Heading>
+          <h2 className="mainHeaderH2">Job roles</h2>
           <div className="rolesContainer">
             {jobRolesData.map((role, index) => (
-                <Link key={index} to={`${routes.COMMON.FIND_JOB}/${role.link}`}>
+                <Link key={index} to={`${routes.FIND_JOB}/${role.link}`}>
                   <JobRoleCard role={role}/>
                 </Link>
             ))}
@@ -49,4 +48,4 @@ const JobsRoleSelect = () => {
   );
 };
 
-export default JobsRoleSelect;
+export default JobsRolesSelect;
