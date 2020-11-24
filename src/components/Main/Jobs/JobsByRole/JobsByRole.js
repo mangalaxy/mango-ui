@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
-import {GreenDash} from '../../Home/Home';
 import './jobsByRole.scss';
 import {reduxForm} from 'redux-form';
 import jobRolesData from '../../../../constants/jobRolesData';
 import RoleCategory from './RoleCategory/RoleCategory';
-import DropDownSelect from '../../../inputs/Select/DropDownSelect/DropDownSelect';
 import JobItem from "./JobItem/JobItem";
 import ReactPaginate from 'react-paginate';
 import Select from 'react-select'
@@ -134,7 +132,6 @@ class JobsByRole extends Component {
                             primary: 'unset',
                         },
                     })}
-                    onChange={() => {}}
                 />
                 <Select
                     options={mockCities}
@@ -151,7 +148,6 @@ class JobsByRole extends Component {
                             primary: 'unset',
                         },
                     })}
-                    onChange={() => {}}
                 />
                 <Select
                     options={mockIndustries}
@@ -168,7 +164,6 @@ class JobsByRole extends Component {
                             primary: 'unset',
                         },
                     })}
-                    onChange={() => {}}
                 />
             </div>
             <div className='jobs-list'>
