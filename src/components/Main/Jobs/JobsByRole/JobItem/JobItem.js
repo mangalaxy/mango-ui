@@ -4,10 +4,11 @@ import {companyLocation, employer, marker} from "../../../../../assets/icons";
 
 function JobItem(props) {
     const {job} = props;
-    console.log(job.logo);
+
     return (
         <div className='job-item'>
-            <div className='job-item__photo' style={{backgroundImage: `url(${job.logo})`}}>
+            <div className='job-item__photo'>
+                <img className='job-item__img' src='../../../../../assets/images/company-photo.png' />
             </div>
             <div className='job-item__content'>
                 <h3 className='job-item__title'>{job.title}</h3>

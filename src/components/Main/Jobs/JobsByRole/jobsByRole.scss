@@ -5,16 +5,19 @@
   &__content {
     max-width: 1200px;
     margin: 0 auto 20px;
-    padding: 0 10px;
+    padding: 80px 10px 0;
     box-sizing: border-box;
     font-family: $menu-font-family;
   }
 
   &__tags {
-    margin-top: 100px;
     display: flex;
-    color: $COLOR_PRIMARY_GREY;
+    color: $gray-900;
     font-size: $base-font-size;
+  }
+
+  &__text {
+    margin-right: 10px;
   }
 
   &__tag {
@@ -40,10 +43,9 @@
 
   &__description {
     display: flex;
-    margin: {
-      top: 2em;
-      bottom: 30px
-    }
+    flex-wrap: wrap;
+
+    margin: 30px 0;
 
     p {
       width: 50%;
@@ -64,42 +66,59 @@
     font-weight: 600;
     text-align: center;
     margin-top: 30px;
+
+    &::after {
+      content: '';
+      display: block;
+      margin: 10px auto;
+      width: 120px;
+      height: 3px;
+      background-color: $COLOR_GREEN;
+    }
   }
 
   &__categories {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
   }
 
   &__category {
-    position: relative;
-    width: 320px;
-    height: 80px;
-    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+    min-height: 80px;
     color: $dark-menu-color;
     font-size: 24px;
     margin: 0 10px 10px 0;
     padding: 0 10px;
     border: 1px solid $gray-300;
     border-radius: 4px;
-    background-color: $background-color;
     cursor: pointer;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  &__text {
+    width: 230px;
+  }
+
+  &__checked-box {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    border-radius: 30px;
+    background-color: $COLOR_MENU_LIGHT;
+    text-align: center;
+    line-height: 40px;
+    color: $gray-300;
 
     &:after {
       content:'\2713';
       position: absolute;
-      top: 20px;
-      right: 15px;
+      top: 0;
+      right: 12px;
       display: block;
-      width: 40px;
-      height: 40px;
-      font-size: 18px;
-      border-radius: 30px;
-      background-color: $COLOR_MENU_LIGHT;
-      text-align: center;
-      line-height: 40px;
-      color: $gray-300;
     }
 
     &--selected {
@@ -113,92 +132,42 @@
   &__filters {
     display: flex;
     align-items: center;
-    justify-content: center;
-  }
+    justify-content: space-around;
+    flex-wrap: wrap;
 
-  &__filter {
-    color: $primary-color;
-    font-size: 12px;
-    font-weight: 700;
-
-    &:first-child {
-      margin-right: 10px;
+    .job-role-filter-container {
+      width: 200px;
     }
 
-    .react-dropdown-select {
-      width: auto !important;
-      margin: 10px 10px !important;
-      border: none !important;
+    .job-role-filter {
 
-      &-input {
-        &::placeholder {
-          color: $primaryColor !important;
-          font-size: 12px !important;
-          font-weight: 700;
-        }
+      &__placeholder {
+        color: $gray-900;
+        font-family: $base-font-family;
       }
 
-      &:hover {
-        border: none !important;
-      }
-
-      &:focus {
-        outline: none !important;
-        box-shadow: none !important;
-        border: none !important;
-        min-height: 28px !important;
-      }
-
-      &:focus-within {
-        outline: none !important;
-        box-shadow: none !important;
-        border: none !important;
-      }
-
-      &-dropdown {
-        background-color: $COLOR_LIGHT;
-        padding: 5px 0;
-        color: $COLOR_MENU_DARK;
-        border: none;
-        z-index: 9999;
-        box-shadow: none;
-      }
-
-      &-item {
-        position: relative;
-        padding: 10px 10px 5px 27px;
+      &__control {
         border: none;
 
-        &::before {
-          position: absolute;
-          top: 8px;
-          left: 7px;
-          content: '';
-          display: block;
-          width: 14px;
-          height: 14px;
-          border: 1px solid $COLOR_LABEL_GRAY;
-          border-radius: 1px;
-          box-sizing: border-box;
-          text-align: center;
-          line-height: 14px;
-          font-size: 14px;
-        }
-
-        &-selected {
-          background-color: $COLOR_LIGHT !important;
-          color: $dark-menu-color !important;
-          border: none !important;
-
-          &::before {
-            content: '\2713';
-            color: $background-color;
-            background-color: $COLOR_GREEN;
-            border: none;
-          }
+        &--is-focused {
+          border: none;
+          box-shadow: none;
         }
       }
+
+      &__option {
+        &--is-selected {
+          color: $gray-900;
+        }
+      }
+
+      &__indicator-separator {
+        display: none;
+      }
+
+
     }
+
   }
 
   .jobs-list {
@@ -213,11 +182,17 @@
 
       &__photo {
         width: 100px;
-        height: 100px;
+        min-width: 100px;
         border: $light-border;
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
+      }
+
+      &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
       }
 
       &__content {
@@ -232,6 +207,7 @@
 
     .company-info {
       display: flex;
+      flex-wrap: wrap;
       margin-top: 10px;
 
       .company-title {
@@ -303,4 +279,77 @@
       }
     }
   }
+}
+
+@media (max-width: 991px) {
+  .job-role {
+    &__title {
+      font-size: 36px;
+      text-align: left;
+
+      &::after {
+        margin: 10px 0;
+      }
+    }
+
+    &__description {
+
+      p {
+        width: 100%;
+        margin: 5px 0;
+        text-align: left;
+
+        &:first-child{
+          padding-right: 0;
+        }
+
+        &:last-child{
+          padding-left: 0;
+        }
+      }
+    }
+
+    &__text {
+      width: unset;
+      max-width: 200px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .job-role {
+    &__category {
+      width: 100%;
+    }
+
+    &__filters {
+      .job-role-filter-container {
+        width: 150px;
+      }
+    }
+  }
+}
+
+
+@media (max-width: 575px) {
+  .job-role {
+
+    &__filters {
+      margin-top: 20px;
+
+      .job-role-filter-text {
+        width: 100%;
+        padding-left: 10px;
+        text-align: left;
+      }
+      .job-role-filter-container {
+        width: 100%;
+      }
+    }
+  }
+
+}
+
+@media (max-width: 480px) {
+
 }

@@ -9,14 +9,12 @@ function RoleCategory(props) {
     }
 
     return (
-        <button className={
-            `job-role__category
-             ${selected && 'job-role__category--selected'}
-            `}
+        <div className='job-role__category'
                 onClick={click}
         >
-            {category}
-        </button>
+            <div className='job-role__text'>{category}</div>
+            <div className={`job-role__checked-box ${selected && 'job-role__checked-box--selected'}`}></div>
+        </div>
     )
 }
 
