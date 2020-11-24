@@ -7,13 +7,12 @@ const JobWithDetails = (props) => {
     return (
         <div className='job-details'>
             <div className='job-breadcrumbs'>
-                <div className='job-breadcrumbs__item'>Home</div>
+                <div className='job-breadcrumbs__item'>Jobs</div>
                 <div className='job-breadcrumbs__item'>Design</div>
                 <div className='job-breadcrumbs__item'>UX Designer</div>
                 <div className='job-breadcrumbs__item'>UI/UX Designer</div>
             </div>
-            <div className='job-tag'>position</div>
-            <div className='job-title'>UX/Ui Designer</div>
+            <h1 className='job-title'>UX/Ui Designer</h1>
             <div className='job-tags'>
                 <div className='job-tags__item'>
                     <div className='job-tag'>Employment Type</div>
@@ -28,7 +27,7 @@ const JobWithDetails = (props) => {
                     <div className='job-tag-value'>Yes</div>
                 </div>
                 <div className='job-tags__item'>
-                    <div className='job-tag'>Visa Sponsopship</div>
+                    <div className='job-tag'>Visa sponsorship</div>
                     <div className='job-tag-value'>No</div>
                 </div>
                 <div className='job-tags__item'>
@@ -53,7 +52,7 @@ const JobWithDetails = (props) => {
                     Conducting Kick off meetings with customers
                 </li>
                 <li className='job-properties-list__item job-simple-text'>
-                    technologies: HTML/CSS (basic), JS (understending specifics)
+                    technologies: HTML/CSS (basic), JS (understanding specifics)
                 </li>
                 <li className='job-properties-list__item job-simple-text'>
                     Create wireframe/prototype and new UI elements of the product
@@ -108,11 +107,8 @@ const JobWithDetails = (props) => {
                 <div className='job-simple-text'>
                     Our customer is an US logistics company that connects brokers with carriers and individual truckers for them to make a deal on the freight shipping. The company has been on the market for almost 40 years, evolving with many technological transformations. We intend to help the customer to achieve their strategic objectives by developing new and evolving existing products, staying relevant with emerging disruptions in this domain.
                 </div>
-                <div className='job-simple-text'>
-                    Our customer is an US logistics company that connects brokers with carriers and individual truckers for them to make a deal on the freight shipping. The company has been on the market for almost 40 years, evolving with many technological transformations. We intend to help the customer to achieve their strategic objectives by developing new and evolving existing products, staying relevant with emerging disruptions in this domain.
-                </div>
             </div>
-            <div className='job-title job-title--margin-top'>another jobs from company amazon</div>
+            <div className='job-title job-title--margin-top'>Another jobs from company amazon</div>
             <div className='job-title job-tag-link'>UX/UI Engineer</div>
             <div className='job-title job-tag-link'>UX Lead</div>
             <div className='job-title job-tag-link'>UX Designer</div>

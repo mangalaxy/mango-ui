@@ -32,28 +32,25 @@
     }
   }
 
-  .job-tag {
-    color: $gray-600;
-  }
-
   .job-title {
-    font-size: 24px;
-    font-weight: bold;
-    line-height: 29px;
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.5;
     text-transform: uppercase;
     color: $dark-menu-color;
   }
 
   .job-title--margin-top {
-    margin-top: 40px;
+    margin-top: 50px;
   }
 
   .job-tags {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px 0;
 
     &__item {
-      margin: 20px 40px 0 0;
 
       &:last-child {
         margin-right: 0;
@@ -61,11 +58,18 @@
     }
   }
 
+  .job-tag {
+    color: $gray-600;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
   .job-tag-value {
+    font-size: 1rem;
     font-weight: 600;
-    font-size: 18px;
-    line-height: 22px;
+    line-height: 1.5;
     color: $COLOR_PRIMARY_GREY;
+    padding: 5px 0 20px 0;
   }
 
   .job-subtitle {
@@ -83,7 +87,6 @@
   }
 
   .job-properties-list {
-
     margin-top: 10px;
     padding-left: 20px;
 
