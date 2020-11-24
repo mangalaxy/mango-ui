@@ -4,7 +4,8 @@
   padding-top: 70px;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
   .info__container {
-    margin: 30px auto 0; }
+    margin: 30px auto 0;
+    width: 70%; }
   .info__bread-crumbs {
     padding: 0 20px;
     color: #212121;
@@ -67,8 +68,7 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    margin-bottom: 30px;
-    padding: 0 20px; }
+    margin-bottom: 30px; }
     .info .info-list__item {
       width: 300px;
       margin-top: 20px;
@@ -95,13 +95,24 @@
 
 @media (max-width: 991px) {
   .info__left-sidebar {
-    display: none; } }
-
-@media (max-width: 767px) {
-  .info .info-list__item {
+    display: none; }
+  .info__container {
+    margin: 30px auto 0;
     width: 100%; } }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
+  .info__container {
+    margin: 30px auto 0; }
+  .info .info-list {
+    padding: 0 15px; }
+    .info .info-list__item {
+      width: 32%; }
   .info__title {
     font-size: 36px;
     line-height: 36px; } }
+
+@media (max-width: 425px) {
+  .info .info-list {
+    padding: 0 15px; }
+    .info .info-list__item {
+      width: 100%; } }
