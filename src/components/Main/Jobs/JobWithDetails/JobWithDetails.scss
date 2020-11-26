@@ -1,0 +1,153 @@
+@import '../../../../styles/_variables.scss';
+
+.job-details {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px 40px;
+  box-sizing: border-box;
+  font-family: $menu-font-family;
+
+  .job-breadcrumbs {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+
+    &__item {
+      position: relative;
+      margin-right: 30px;
+      cursor: pointer;
+
+      &:after {
+        content: '>';
+        position: absolute;
+        top: -2px;
+        right: -20px;
+        display: block;
+        font-size: 20px;
+      }
+
+      &:last-child:after {
+        display: none;
+      }
+    }
+  }
+
+  .job-title {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.5;
+    text-transform: uppercase;
+    color: $dark-menu-color;
+  }
+
+  .job-title--margin-top {
+    margin-top: 50px;
+  }
+
+  .job-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px 0;
+
+    &__item {
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .job-tag {
+    color: $gray-600;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .job-tag-value {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+    color: $COLOR_PRIMARY_GREY;
+    padding: 5px 0 20px 0;
+  }
+
+  .job-subtitle {
+    margin-top: 30px;
+    font-weight: 600;
+    font-size: 18px;
+    text-transform: capitalize;
+    color: $COLOR_MOBILE_MENU;
+  }
+
+  .job-simple-text {
+    font-size: 18px;
+    line-height: 26px;
+    color: $COLOR_PRIMARY_GREY;
+  }
+
+  .job-properties-list {
+    margin-top: 10px;
+    padding-left: 20px;
+
+    &__item {
+      position: relative;
+      margin-bottom: 10px;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 10px;
+        left: -20px;
+        display: block;
+        width: 5px;
+        height: 5px;
+        border-radius: 5px;
+        background-color: $COLOR_PRIMARY_GREY;
+      }
+    }
+  }
+
+  .company-info {
+    display: flex;
+    flex-wrap: wrap;
+
+    &__item {
+      display: flex;
+      align-items: center;
+      margin: 5px 40px 0 0;
+    }
+
+    &__text {
+      margin-left: 10px;
+    }
+  }
+
+  .about-company {
+    display: flex;
+    justify-content: space-between;
+
+    .job-simple-text {
+      margin-top: 30px;
+    }
+
+    .job-simple-text:nth-child(odd) {
+      margin-right: 30px;
+    }
+  }
+
+  .job-tag-link {
+    margin-top: 10px;
+    font-weight: normal;
+    color: $COLOR_GREEN;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 767px) {
+  .job-details {
+    .about-company {
+      flex-wrap: wrap;
+    }
+  }
+}
