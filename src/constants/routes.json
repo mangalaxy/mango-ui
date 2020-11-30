@@ -5,10 +5,10 @@
     "FOR_TALENTS": "/for-talents",
     "FOR_EMPLOYERS": "/for-employers",
     "ABOUT": "/about",
-    "PRIVACY_POLICY": "/privacy-policy",
-    "SUPPORT_CENTER": "/support-center",
-    "TERMS_OF_USE": "/terms-of-use",
-    "FIND_JOB": "/find-job",
+    "PRIVACY_POLICY": "/legal/privacy",
+    "TERMS_OF_USE": "/legal/terms-of-use",
+    "SUPPORT_CENTER": "/support",
+    "FIND_JOB": "/jobs",
     "FIND_JOB_BY_ROLE": "/job-by-role/",
     "JOB_WITH_DETAILS": "/job-details",
     "BLOG": "/blog",
@@ -17,8 +17,8 @@
     "SIGNUP_EMPLOYER": "/signup-employer"
   },
   "EMPLOYERS": {
-    "HOME": "/employers/",
-    "WELCOME": "/employers/welcome",
+    "HOME": "/employer/private-area",
+    "WELCOME": "/employer/welcome",
     "OPEN_POSITIONS": "/employers/open-positions",
     "COMPANY": "/employers/company",
     "COMPANY_EDIT": "/employers/company/edit",
@@ -26,7 +26,7 @@
     "BOOKMARKED": "/employers/bookmarked",
     "INTERVIEWS": "/employers/interviews"
   },
-  "TALENT_HOME": "/talent",
+  "TALENT_HOME": "/talents/private-area",
   "PROFILE_CREATE": "/profile-create",
   "TALENT_PROFILE": "/talent/profile",
   "JOB_WITH_DETAILS": "/job-details"

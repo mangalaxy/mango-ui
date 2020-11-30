@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
 
-class Talent extends Component {
+class TalentHome extends Component {
   render(): React.ReactElement<any> | string | number | {} | React.ReactNodeArray | React.ReactPortal | boolean | null | undefined {
     return (
         <Fragment>
@@ -10,4 +10,4 @@ class Talent extends Component {
   }
 }
 
-export default Talent;
+export default TalentHome;

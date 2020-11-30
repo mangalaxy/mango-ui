@@ -10,7 +10,7 @@ class EmployersPositions extends Component {
       <div className="employersPositions">
 
         <Link to="#" className="employersPositions-btn">
-          + create new position
+          + Create new position
         </Link>
 
         <h3 className="employersPositions-title">
