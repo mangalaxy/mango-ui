@@ -1,8 +1,7 @@
-import React from 'react'
-import SvgIcon from '../../../SvgIcon/SvgIcon'
-import {companyLocation, employer, marker} from "../../../../assets/icons"
-
-import './JobWithDetails.scss'
+import React from 'react';
+import './JobWithDetails.scss';
+import SvgIcon from '../../../SvgIcon/SvgIcon';
+import {companyLocation, employer, marker} from "../../../../assets/icons";
 
 const JobWithDetails = (props) => {
     return (
@@ -117,4 +116,4 @@ const JobWithDetails = (props) => {
     )
 }
 
-export default JobWithDetails
+export default JobWithDetails;
