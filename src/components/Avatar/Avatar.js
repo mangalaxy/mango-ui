@@ -1,22 +1,21 @@
-import React from 'react';
-import './Avatar.scss';
+import React from 'react'
 
-const Avatar = (props) => {
-    const {className, img, alt, size, edit} = props;
+import './Avatar.scss'
 
+const Avatar = ({className, img, size, edit}) => {
     return (
         <div className={`avatar ${className}`} style={{ width: size, height: size }}>
             {edit && <div className='avatar__add-photo'>
-                <div>change photo</div>
+                <div>Change photo</div>
             </div>}
             <img
                 className='avatar__image'
                 src={img}
-                alt={alt}
+                alt='User avatar'
                 style={{ width: size, height: size }}
             />
         </div>
     )
 };
 
-export default Avatar;
+export default Avatar

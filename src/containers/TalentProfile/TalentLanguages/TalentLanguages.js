@@ -25,7 +25,7 @@ function TalentLanguages(props) {
     return (
         <div className='talent-form__section'>
             <div className='section-title'>
-                <SvgIcon type={languages(colors.COLOR_PRIMERY)}/>
+                <SvgIcon type={languages(colors.COLOR_PRIMARY)}/>
                 <div className='section-title__text'>Languages
                     {edit && <span onClick={addNewLanguage} className='section-title__text--clicked'>+</span>}
                 </div>

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import './jobsByRole.scss';
-import {reduxForm} from 'redux-form';
 import jobRolesData from '../../../../constants/jobRolesData';
 import RoleCategory from './RoleCategory/RoleCategory';
 import JobItem from "./JobItem/JobItem";
@@ -187,9 +186,5 @@ class JobsByRole extends Component {
   }
 
 }
-
-JobsByRole = reduxForm ({
-    form: 'jobRole',
-}) (JobsByRole);
 
 export default JobsByRole;

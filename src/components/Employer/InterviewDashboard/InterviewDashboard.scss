@@ -1,6 +1,6 @@
 @import '../../../styles/_variables.scss';
 
-.inreview-dashboard {
+.interview-dashboard {
   display: flex;
   justify-content: center;
   width: 100%;
@@ -8,14 +8,14 @@
 
   &__left-side {
 
-    .upcoming-interviews, .inreview-offers {
+    .upcoming-interviews, .interview-offers {
       width: 340px;
       min-height: 300px;
       margin-right: 20px;
       background-color: #fff;
       padding: 20px;
       font-family: $FONT_COMMON;
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     }
   }
 
@@ -29,7 +29,7 @@
     height: 100%;
     background-color: #fff;
     padding: 20px 20px 0;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   }
 
   &__subtitle {
@@ -48,14 +48,14 @@
     }
   }
 
-  &__shedule-item {
+  &__schedule-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-top: 20px;
   }
 
-  .shedule-talent-info {
+  .schedule-talent-info {
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -67,17 +67,17 @@
     &__name {
       color: $COLOR_MENU_DARK;
       font-weight: 600;
-      font-size: 24px;
+      font-size: 1.2rem;
     }
 
     &__position {
       margin-top: 5px;
-      font-size: 18px;
+      font-size: 1rem;
       color: $COLOR_PRIMARY_GREY;
     }
   }
 
-  .shedule-talent-status {
+  .schedule-talent-status {
     font-size: 18px;
     color: $COLOR_PRIMARY_GREY;
   }
@@ -124,7 +124,7 @@
     }
   }
 
-  .upcomings-info {
+  .upcoming-info {
 
     &__item {
       display: flex;
@@ -157,7 +157,7 @@
       font-size: 16px;
     }
 
-    &__cicle {
+    &__cirle {
       width: 5px;
       height: 5px;
       border-radius: 5px;
@@ -176,7 +176,7 @@
     }
   }
 
-  .inreview-offers {
+  .interview-offers {
     margin-top: 20px;
 
     &__item {
@@ -233,7 +233,7 @@
         left: 4px;
         top: 18px;
         transform: rotate(45deg);
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
       }
     }
 
@@ -261,7 +261,7 @@
       top: 20px;
       left: -110px;
       width: 225px;
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
       background-color: #fff;
 
       &__item {

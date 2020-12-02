@@ -1,9 +1,9 @@
 import React from 'react';
 import '../Auth.scss';
 import rocket from '../../../assets/icons/rocket.svg';
-import SighUpTalentForm from '../../Forms/SignUpTalentForm';
+import SighUpTalentFormContainer from './SignUpTalentFormContainer';
 
-const SignUpTalent = ({handleSignIn}) => {
+const SignUpTalentFrame = ({handleSignIn}) => {
   return (
       <div className="authContainer">
         <div className='infoContainer talentSignUp'>
@@ -20,8 +20,7 @@ const SignUpTalent = ({handleSignIn}) => {
         </div>
         <div className='formContainer'>
           <div className="content">
-            <SighUpTalentForm
-            />
+            <SighUpTalentFormContainer />
             <p>Have an account? <span onClick={handleSignIn}>Sign in</span></p>
           </div>
         </div>
@@ -30,4 +29,4 @@ const SignUpTalent = ({handleSignIn}) => {
 
 };
 
-export default SignUpTalent;
+export default SignUpTalentFrame;

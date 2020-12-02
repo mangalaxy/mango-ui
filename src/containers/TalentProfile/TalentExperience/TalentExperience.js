@@ -28,7 +28,7 @@ function TalentExperience(props) {
   return (
         <div className='talent-form__section'>
           <div className='section-title'>
-            <SvgIcon type={portfolio(colors.COLOR_PRIMERY)}/>
+            <SvgIcon type={portfolio(colors.COLOR_PRIMARY)}/>
             <div className='section-title__text'>
               Work experience
               {edit &&

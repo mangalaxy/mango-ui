@@ -10,7 +10,7 @@ function TalentSalary(props) {
     return (
         <div className='talent-form__section'>
             <div className='section-title'>
-                <SvgIcon type={salary(colors.COLOR_PRIMERY)}/>
+                <SvgIcon type={salary(colors.COLOR_PRIMARY)}/>
                 <div className='section-title__text'>Salary</div>
             </div>
             <div className='section-row'>

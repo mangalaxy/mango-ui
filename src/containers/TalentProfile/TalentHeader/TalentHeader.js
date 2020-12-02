@@ -5,7 +5,7 @@ import Avatar from '../../../components/Avatar/Avatar';
 import TextInput from '../../../components/inputs/TextInput/TextInput';
 import DropDownSelect from "../../../components/inputs/Select/DropDownSelect/DropDownSelect";
 import SvgIcon from '../../../components/SvgIcon/SvgIcon';
-import AvatarEditor from 'react-avatar-editor'
+// import AvatarEditor from 'react-avatar-editor'
 
 const mockOptions = [
     {label: 'Option1', value: 'Option1'},
@@ -36,7 +36,6 @@ function TalentHeader(props) {
                     <label htmlFor={edit ? 'avatar' : ''}>
                         <Avatar
                             img={user.photoURL}
-                            alt={user.talent.fullName}
                             size={200}
                             edit={edit}
                         />
@@ -45,7 +44,7 @@ function TalentHeader(props) {
                 {
                     avatarEditor &&
                     <div className='talent-avatar-editor'>
-                        <AvatarEditor
+                        {/*<AvatarEditor
                             ref={setEditorRef}
                             image={newAvatar}
                             width={200}
@@ -53,7 +52,7 @@ function TalentHeader(props) {
                             border={0}
                             rotate={0}
                             scale={1.2}
-                        />
+                        />*/}
                     </div>
                 }
 
@@ -76,7 +75,7 @@ function TalentHeader(props) {
                     }
 
                     <div className='section-row__description'>
-                        <SvgIcon type={location(colors.COLOR_PRIMERY)}/>
+                        <SvgIcon type={location(colors.COLOR_PRIMARY)}/>
                         <div className='section-row__text'>{user.talent.location.city}, {user.talent.location.country}</div>
                     </div>
                 </div>

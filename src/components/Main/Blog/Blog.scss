@@ -36,11 +36,10 @@
 
 .blog-container {
   max-width: 1200px;
-  margin: 0 auto;
   padding: 0 20px 30px;
   display: flex;
   justify-content: space-between;
-  margin-top: 40px;
+  margin: 40px auto 0;
 
   .blog-content {
     width: 60%;
@@ -125,8 +124,6 @@
           color: #828282;
         }
       }
-
-
     }
 
     .posts-title {
@@ -224,7 +221,7 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .blog-container {
     flex-wrap: wrap;
 

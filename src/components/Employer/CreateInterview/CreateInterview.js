@@ -29,17 +29,14 @@ const mockFormats = [
 
 const mockCities = [
     {label: 'Kyiv', value: 'Kyiv'},
-    {label: 'Lviv', value: 'Lviv'},
+    {label: 'Kharkov', value: 'Kharkov'},
     {label: 'Odessa', value: 'Odessa'},
 ];
 
-function CreateInterview(props) {
+const CreateInterview = (props) => {
     const formik = useFormik({
-        initialValues: {
-        },
-        onSubmit: values => {
-            console.log(values);
-        },
+        initialValues: {},
+        onSubmit: values => console.log(values)
     });
 
     return (

@@ -17,7 +17,7 @@ function TalentSkills(props) {
     return (
         <div className='talent-form__section'>
             <div className='section-title'>
-                <SvgIcon type={name(colors.COLOR_PRIMERY)}/>
+                <SvgIcon type={name(colors.COLOR_PRIMARY)}/>
                 <div className='section-title__text'>Skills</div>
             </div>
             <div className={`sectin-row ${edit && 'section-row--margin-top'}`}>

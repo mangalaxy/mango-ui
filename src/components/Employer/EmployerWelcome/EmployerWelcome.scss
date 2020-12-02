@@ -1,41 +1,37 @@
 @import '../../../styles/_variables.scss';
 
-.employer-welcome {
-  width: 1190px;
-  margin: 110px auto 0;
-  padding: 44px 64px 0 64px;
+.welcome-frame {
+  width: 80%;
+  margin: 50px auto 0;
+  padding: 30px 25px;
   background-color: #FFFFFF;
+  color: $base-color;
 
-  &-title {
-    font-family: $FONT_COMMON;
-    font-size: 36px;
-    color: $primaryColor;
-    line-height: 48px;
-    text-transform: capitalize;
+  &-greeting {
+    font-size: 1.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: $gray-800;
   }
+
   &-text {
-    margin-top: 30px;
-    margin-bottom: 75px;
-    font-family: $FONT_COMMON;
-    font-size: 28px;
-    line-height: 34px;
-    color: $primaryColor;
+    margin-top: 1em;
+    margin-bottom: 1.5em;
+    font-size: 1.2rem;
+    line-height: 1.5;
   }
+
   &-sign {
-    display: block;
-    font-family: $FONT_COMMON;
-    font-size: 24px;
-    line-height: 29px;
-    color: $primaryColor;
+    font-size: 1.2rem;
+    line-height: 1.5;
   }
+
   &-btn {
     display: inline-block;
-    margin-top: 70px;
-    margin-bottom: 115px;
-    padding: 15px 25px;
-    font-family: $FONT_COMMON;
-    font-size: 22px;
-    line-height: 27px;
+    margin-top: 40px;
+    padding: .7em 1.1em;
+    font-size: 1.3rem;
+    line-height: 1.5;
     color: #FFFFFF;
     background: #FF8080;
     border-radius: 8px;

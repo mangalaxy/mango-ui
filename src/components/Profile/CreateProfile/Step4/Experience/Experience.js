@@ -9,7 +9,7 @@ function Experience() {
             <TextInput
                 name='company'
                 type='text'
-                placeholder='Company'
+                placeholder='CompanyLayout'
             />
             <TextInput
                 name='companyPosition'

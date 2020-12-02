@@ -1,9 +1,9 @@
 import React from 'react';
 import {Formik} from 'formik';
 import * as Yup from 'yup';
-import LoginFormView from './LoginFormView';
+import LoginForm from "./LoginForm";
 
-const contactSchema = Yup.object().shape(
+const loginFormSchema = Yup.object().shape(
       {
         name: Yup.string()
               .min(2, 'Minimum 2 symbols')
@@ -17,19 +17,17 @@ const contactSchema = Yup.object().shape(
       }
 );
 
-const LoginForm = ({onSuccess, onError}) => (
-      <Formik onSubmit={(
-            {email, password, rememberMe}, {resetForm, setStatus, setSubmitting}) => {
+const LoginFormContainer = ({onSuccess, onError}) => (
+      <Formik onSubmit={({email, password, rememberMe}, {resetForm, setStatus, setSubmitting}) => {
         setStatus({});
         try {
           let data = {};
           data.email = email;
           data.password = password;
           data.rememberMe = rememberMe;
-
           // TODO: do query to API
           onSuccess();
-          // resetForm();
+          resetForm();
         } catch (err) {
           setStatus({failed: true});
           setSubmitting(false);
@@ -38,11 +36,10 @@ const LoginForm = ({onSuccess, onError}) => (
 
       }
       }
-
-              component={LoginFormView}
-              validationSchema={contactSchema}
+              component={LoginForm}
+              validationSchema={loginFormSchema}
               initialValues={{}}
       />
-);
+)
 
-export default LoginForm;
+export default LoginFormContainer;

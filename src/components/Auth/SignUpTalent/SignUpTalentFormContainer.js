@@ -1,7 +1,7 @@
 import {Formik} from 'formik';
 import React from 'react';
 import * as Yup from 'yup';
-import SignUpFormView from '../SignUpFormView';
+import SignUpFormView from '../SignUpEmployer/SignUpForm';
 
 const contactSchema = Yup.object().shape(
       {
@@ -17,7 +17,7 @@ const contactSchema = Yup.object().shape(
       }
 );
 
-const SignUpTalentForm = ({onSuccess, onError}) => (
+const SignUpTalentFormContainer = ({onSuccess, onError}) => (
       <Formik onSubmit={(
                   {email, password, rememberMe}, {resetForm, setStatus, setSubmitting}) => {
               setStatus({});
@@ -52,4 +52,4 @@ const SignUpTalentForm = ({onSuccess, onError}) => (
       />
 );
 
-export default SignUpTalentForm;
+export default SignUpTalentFormContainer

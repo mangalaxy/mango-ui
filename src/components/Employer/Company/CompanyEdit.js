@@ -22,7 +22,7 @@ const industries = [
 ];
 
 const CompanyEdit = ({companyProfile, history}) => {
-  const handleSave = (profile) => {
+  const handleSave = (companyProfile) => {
     console.log('SAVED!');
    //TODO: send company data to backend
     history.push(routes.EMPLOYERS.COMPANY);

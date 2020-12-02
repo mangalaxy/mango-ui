@@ -10,4 +10,4 @@ const Bookmark = ({click, title}) => {
     </>
   )
 }
-export default Remove;
+export default Bookmark

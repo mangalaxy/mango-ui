@@ -82,13 +82,13 @@ const JobWithDetails = (props) => {
                     Conducting Kick off meetings with customers
                 </li>
                 <li className='job-properties-list__item job-simple-text'>
-                    technologies: HTML/CSS (basic), JS (understending specifics)
+                    technologies: HTML/CSS (basic), JS (understanding specifics)
                 </li>
                 <li className='job-properties-list__item job-simple-text'>
                     Create wireframe/prototype and new UI elements of the product
                 </li>
             </ul>
-            <div className='job-title job-title--margin-top'>about AMAZON</div>
+            <div className='job-title job-title--margin-top'>About AMAZON</div>
             <div className='company-info'>
                 <div className='company-info__item'>
                     <SvgIcon type={employer()} className='company-info-icon'/>

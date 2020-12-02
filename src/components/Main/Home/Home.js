@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import './Home.scss';
 import Slider from 'react-slick';
 import {top3Jobs} from "../../../mocks/top3JobsOnHomePage";
@@ -231,10 +231,10 @@ const CityCard = ({city}) => {
   return (
         <div className="cityContainer">
           {city &&
-          <Fragment>
-            <img src={city.image} alt=""/>
+          <>
+            <img src={city.image} alt={city.name}/>
             <h3>{city.name}</h3>
-          </Fragment>}
+          </>}
         </div>
-  );
-};
+  )
+}
