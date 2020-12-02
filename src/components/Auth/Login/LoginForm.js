@@ -1,5 +1,6 @@
 import React from 'react';
 import {Field} from 'formik';
+import routes from "../../../constants/routes.json";
 import FKAuthTextInput from '../../Fields/FKAuthTextInput/FKAuthTextInput';
 import FKCheckbox from '../../Fields/FKCheckbox/FKCheckbox';
 import {Link} from "react-router-dom";
@@ -7,7 +8,7 @@ import {Link} from "react-router-dom";
 import './styles.scss';
 
 const LoginForm = (props) => {
-  const {handleSubmit, handleReset, isSubmitting, isValid} = props
+  const {handleSubmit, isSubmitting, isValid} = props;
   return (
         <div className='loginForm'>
           <div className="fieldContainer">
@@ -34,13 +35,13 @@ const LoginForm = (props) => {
                   name='remember'
                   label='Remember me'
             />
-            <Link className='link' to="/recover-password">Forgot password?</Link>
+            <Link className='link' to={routes.COMMON.PASSWORD_RECOVERY}>Forgot password?</Link>
           </div>
           <div className='buttonsContainer'>
             <button className='accent-btn'
                     disabled={!isValid || isSubmitting}
                     onClick={handleSubmit}>
-              Login
+              Get started
             </button>
           </div>
         </div>

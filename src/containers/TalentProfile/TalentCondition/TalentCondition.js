@@ -16,7 +16,7 @@ function TalentCondition(props) {
     return (
         <div className='talent-form__section'>
             <div className='section-title'>
-                <SvgIcon type={clock(colors.COLOR_PRIMERY)}/>
+                <SvgIcon type={clock(colors.COLOR_PRIMARY)}/>
                 <div className='section-title__text'>Condition</div>
             </div>
             <div className='section-row'>

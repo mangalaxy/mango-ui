@@ -47,16 +47,16 @@ const Footer = () => (
           </Link>
         </li>
         <li>
-          <Link to={routes.COMMON.SUPPORT_CENTER} className='menuItem'>
+          <Link to={routes.COMMON.SUPPORT} className='menuItem'>
             Support
           </Link></li>
         <li>
-          <Link to={routes.COMMON.PRIVACY_POLICY} className='menuItem'>
+          <Link to={routes.COMMON.PRIVACY} className='menuItem'>
             Privacy
           </Link>
         </li>
         <li>
-          <Link to={routes.COMMON.TERMS_OF_USE} className='menuItem'>
+          <Link to={routes.COMMON.TERMS} className='menuItem'>
             Terms
           </Link>
         </li>

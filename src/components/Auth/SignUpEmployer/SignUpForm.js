@@ -19,7 +19,7 @@ const SignUpForm = ({handleSubmit, isSubmitting, isValid, initialValues}) => (
                 component={FKAuthTextInput}
                 disabled={isSubmitting}
                 name="email"
-                placeholder={initialValues.role === 'employer' ? 'Company e-mail' : 'E-mail'}
+                placeholder={initialValues.role === 'employer' ? 'CompanyLayout e-mail' : 'E-mail'}
                 containerClassName='field'
           />
           {initialValues.role === 'employer' &&
@@ -35,7 +35,7 @@ const SignUpForm = ({handleSubmit, isSubmitting, isValid, initialValues}) => (
                   component={FKAuthTextInput}
                   disabled={isSubmitting}
                   name="company"
-                  placeholder='Company name'
+                  placeholder='CompanyLayout name'
                   containerClassName='field'
             />
             <Field

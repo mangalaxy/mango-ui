@@ -9,24 +9,24 @@
   align-items: center;
   padding: 10px 30px;
   box-sizing: border-box;
-// background-color: rgba(0,0,0,.2);
-  &.white{
+
+  &.white {
     background-color: white;
   }
-  &.gray{
+
+  &.gray {
     background-color: #F7F7F7;
   }
 
   .logo {
     text-transform: uppercase;
-    font-size: 48px;
-    letter-spacing: .1em;
+    font-size: 1.7rem;
+    letter-spacing: .2em;
     font-family: $FONT_LOGO;
     color: $COLOR_CORAL;
     text-decoration: none;
 
-    &:active,
-    &:focus {
+    &:active, &:focus {
       outline: none;
     }
   }

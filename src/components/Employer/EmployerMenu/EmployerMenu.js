@@ -9,45 +9,48 @@ const EmployerMenu = ({ user, theme = null }) => {
       <div className={`employerMenuContainer ${theme}`}>
         <div>
           <Link to={routes.EMPLOYERS.HOME} className='logo'>
-            Mangostart
+            mangostart
           </Link>
         </div>
         <ul className='menuItemsContainer'>
           <li>
-            <NavLink to={routes.EMPLOYERS.OPEN_POSITIONS}
-                     className={'menuItem'}
-                     activeClassName={'menuItem active'}
-            >My jobs</NavLink>
-          </li>
-          <li>
-            <NavLink to={routes.EMPLOYERS.FIND_TALENT}
-                     className={'menuItem'}
+            <NavLink to={routes.EMPLOYERS.POSITIONS}
+                     className='menuItem'
                      activeClassName={'menuItem active'}>
-              Find talent
+              My positions
             </NavLink>
           </li>
+
           <li>
             <NavLink to={routes.EMPLOYERS.BOOKMARKED}
-                     className={'menuItem'}
+                     className='menuItem'
                      activeClassName={'menuItem active'}>
               Bookmarked
             </NavLink>
           </li>
           <li>
             <NavLink to={routes.EMPLOYERS.INTERVIEWS}
-                     className={'menuItem'}
+                     className='menuItem'
                      activeClassName={'menuItem active'}>
               Interviews
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to={routes.EMPLOYERS.COMPANY}
+                     className='menuItem'
+                     activeClassName={'menuItem active'}>
+              My company
             </NavLink>
           </li>
         </ul>
         <div className='menuItemsContainer'>
           <div>
-            <span className='menuItem authBlock left'>{user && user.fullName ?
-                user.fullName : 'USER'}</span>
+            <span className='menuItem authBlock left'>
+              {user && user.fullName ? user.fullName : 'USER'}
+            </span>
           </div>
           <div>
-            <span className='menuItem authBlock'>Sign out</span>
+            <Link className='menuItem authBlock' to='/sign-out'>Sign out</Link>
           </div>
         </div>
       </div>

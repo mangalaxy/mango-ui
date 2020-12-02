@@ -9,7 +9,7 @@ function TalentLinks(props) {
     return (
         <div className='talent-form__section'>
             <div className='section-title'>
-                <SvgIcon type={links(colors.COLOR_PRIMERY)}/>
+                <SvgIcon type={links(colors.COLOR_PRIMARY)}/>
                 <div className='section-title__text'>links</div>
             </div>
             <div className='section-row'>

@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import './CreateProfile.scss'
 import TalentMenu from "../../Talent/TalentMenu/TalentMenu";
 import Step1 from "./Step1/Step1";
 import Step2 from "./Step2/Step2";
@@ -8,7 +7,9 @@ import Step4 from "./Step4/Step4";
 import Step5 from "./Step5/Step5";
 import {useFormik} from 'formik';
 
-function CreateProfile(props) {
+import './CreateProfile.scss'
+
+const CreateProfile = () => {
     const [activeStep, setActiveStep] = useState(1);
 
     const formik = useFormik({

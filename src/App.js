@@ -17,9 +17,9 @@ const App = () => {
       <Router>
         <Route component={ScrollToTop}/>
         <Switch>
-          <Route path={routes.EMPLOYERS.HOME} component={EmployerPage}/>
-          <Route path={routes.TALENT_HOME} component={TalentHome}/>
-          <Route path={routes.COMMON.HOME} component={MainPage}/>
+          <Route path={routes.EMPLOYER.HOME} component={EmployerPage}/>
+          <Route path={routes.TALENT.HOME} component={TalentHome}/>
+          <Route path={routes.COMMON.ROOT} component={MainPage}/>
 
           {/*<Route path={routes.TALENT_HOME + '/:id/interviews'}*/}
           {/*       component={ProfileInterview}/>*/}

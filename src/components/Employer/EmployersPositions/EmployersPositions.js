@@ -1,32 +1,28 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import EmployersPositionItem from './EmployersPositionItem';
+import EmployerJobList from "./EmployerJobList";
+
 import './EmployersPositions.scss';
 
 class EmployersPositions extends Component {
   render() {
     return (
       <div className="employersPositions">
-
-        <Link to="#" className="employersPositions-btn">
+        <Link to="/create-new-job" className="employersPositions-btn">
           + Create new position
         </Link>
-
         <h3 className="employersPositions-title">
           Your positions
         </h3>
-
-        <div className="employersPositions-content">
-          {this.props.jobs.map(item => (
-            <EmployersPositionItem key={item.id} itemData={item} history={this.props.history} />
-          ))}
-        </div>
+        <EmployerJobList jobs={this.props.jobs} />
       </div>
     )
   }
 }
-const mapStoreToProps = (store) => {
-  return {jobs: store.jobsReducer}
+const mapStoreToProps = store => {
+  return {
+    jobs: store.jobsReducer
+  }
 }
 export default connect(mapStoreToProps)(EmployersPositions);

@@ -17,7 +17,7 @@ function TalentExpectations(props) {
     return (
         <div className='talent-form__section'>
             <div className='section-title'>
-                <SvgIcon type={town(colors.COLOR_PRIMERY)}/>
+                <SvgIcon type={town(colors.COLOR_PRIMARY)}/>
                 <div className='section-title__text'>Expectations</div>
             </div>
             <div className='section-row'>

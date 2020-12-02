@@ -17,7 +17,7 @@ function TalentLocation(props) {
     return (
         <div className='talent-form__section'>
             <div className='section-title'>
-                <SvgIcon type={location(colors.COLOR_PRIMERY)}/>
+                <SvgIcon type={location(colors.COLOR_PRIMARY)}/>
                 <div className='section-title__text'>Location</div>
             </div>
             <div className='section-row'>

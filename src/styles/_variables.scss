@@ -1,4 +1,4 @@
-$web-font-path-sans-serif: "https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap" !default;
+$web-font-path-sans-serif: "https://fonts.googleapis.com/css?family=Montserrat&display=swap" !default;
 $web-font-path-cursive: "https://fonts.googleapis.com/css?family=Carter+One&display=swap" !default;
 
 @import url($web-font-path-sans-serif);
@@ -58,7 +58,6 @@ $normal-padding: 20px 30px;
 // Borders
 $light-border: 1px solid $gray-300;
 
-
 // Custom colors
 $primaryColor: $base-color;
 $secondaryColor: #008489;
@@ -86,7 +85,7 @@ $FONT_LOGO: 'Carter One', cursive;
 $FONT_MENU: 'Montserrat', sans-serif;
 $FONT_COMMON: 'Montserrat', sans-serif;
 $MAIN_MENU_HEIGHT: 70px;
-$FOOTER_HEIGHT: 170px;
+$FOOTER_HEIGHT: 200px;
 
 
 

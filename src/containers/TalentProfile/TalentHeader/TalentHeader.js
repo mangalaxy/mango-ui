@@ -76,7 +76,7 @@ function TalentHeader(props) {
                     }
 
                     <div className='section-row__description'>
-                        <SvgIcon type={location(colors.COLOR_PRIMERY)}/>
+                        <SvgIcon type={location(colors.COLOR_PRIMARY)}/>
                         <div className='section-row__text'>{user.talent.location.city}, {user.talent.location.country}</div>
                     </div>
                 </div>

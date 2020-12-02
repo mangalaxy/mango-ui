@@ -9,7 +9,7 @@ function TalentContacts(props) {
     return (
         <div className='talent-form__section'>
             <div className='section-title'>
-                <SvgIcon type={email(colors.COLOR_PRIMERY)}/>
+                <SvgIcon type={email(colors.COLOR_PRIMARY)}/>
                 <div className='section-title__text'>contact</div>
             </div>
             <div className='section-row'>

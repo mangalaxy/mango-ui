@@ -3,10 +3,10 @@ import {connect} from 'react-redux';
 import Select from "react-dropdown-select";
 import {InputTextarea} from 'primereact/inputtextarea';
 import FormButton from '../../Buttons/FormButton/FormButton';
+
 import './RequestInterview.scss';
 
 const RequestInterview = (props) => {
-
   const [selectValues, setSelectValues] = useState([]);
   const [textareaValue, setTextareaValue] = useState('Hi, Arthur! I would like to invite you for an interview ASAP.');
 

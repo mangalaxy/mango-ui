@@ -232,9 +232,9 @@ const CityCard = ({city}) => {
         <div className="cityContainer">
           {city &&
           <>
-            <img src={city.image} alt=""/>
+            <img src={city.image} alt={city.name}/>
             <h3>{city.name}</h3>
           </>}
         </div>
-  );
-};
+  )
+}

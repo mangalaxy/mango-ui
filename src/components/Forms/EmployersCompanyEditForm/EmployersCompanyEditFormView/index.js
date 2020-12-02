@@ -15,7 +15,7 @@ const EmployersCompanyEditFormView =({ handleSubmit, isSubmitting, isValid, valu
       <div className="headSection">
         <label htmlFor="logo">
           <div className="logoContainer">
-            {values.logo ? <img src={values.logo} alt="Company logo" /> :
+            {values.logo ? <img src={values.logo} alt="CompanyLayout logo" /> :
                 <div className='logoPlaceholder'>
                   <svg width="110" height="100" viewBox="0 0 110 100" fill="none"
                        xmlns="http://www.w3.org/2000/svg">
@@ -29,7 +29,7 @@ const EmployersCompanyEditFormView =({ handleSubmit, isSubmitting, isValid, valu
         </label>
         <input type="file" style={{display: 'none'}} accept="image/*" id='logo' ref={logoRef}/>
         <div className="fieldContainer">
-          <label className='fieldLabel'>Company name</label>
+          <label className='fieldLabel'>CompanyLayout name</label>
           <Field
               component={TextInput}
               disabled={isSubmitting}
@@ -42,7 +42,7 @@ const EmployersCompanyEditFormView =({ handleSubmit, isSubmitting, isValid, valu
               disabled={isSubmitting}
               name='headline'
           />
-          <label className='fieldLabel'>Company address</label>
+          <label className='fieldLabel'>CompanyLayout address</label>
           <Field
               component={FKTextAreaInput}
               resize
@@ -51,7 +51,7 @@ const EmployersCompanyEditFormView =({ handleSubmit, isSubmitting, isValid, valu
           />
           <div className="flex-container">
             <div className="companySize">
-              <label className='fieldLabel'>Company size</label>
+              <label className='fieldLabel'>CompanyLayout size</label>
               <Field
                   component={FKDropdown}
                   disabled={isSubmitting}

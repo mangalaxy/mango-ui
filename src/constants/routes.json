@@ -1,33 +1,36 @@
 {
   "COMMON": {
-    "HOME": "/",
+    "ROOT": "/",
     "LOGIN": "/login",
+    "LOGOUT": "/logout",
+    "SIGNUP_TALENT": "/talent/signup",
+    "SIGNUP_EMPLOYER": "/employer/signup",
     "FOR_TALENTS": "/for-talents",
     "FOR_EMPLOYERS": "/for-employers",
-    "ABOUT": "/about",
-    "PRIVACY_POLICY": "/legal/privacy",
-    "TERMS_OF_USE": "/legal/terms-of-use",
-    "SUPPORT_CENTER": "/support",
+    "ABOUT": "/about-us",
+    "PRIVACY": "/legal/privacy-policy",
+    "TERMS": "/legal/terms-of-use",
+    "SUPPORT": "/support-center",
     "FIND_JOB": "/jobs",
     "FIND_JOB_BY_ROLE": "/job-by-role/",
     "JOB_WITH_DETAILS": "/job-details",
     "BLOG": "/blog",
-    "POST": "/post",
-    "SIGNUP_TALENT": "/signup-talent",
-    "SIGNUP_EMPLOYER": "/signup-employer"
+    "POST": "/post"
   },
-  "EMPLOYERS": {
-    "HOME": "/employer/private-area",
+  "EMPLOYER": {
+    "HOME": "/employer/home",
     "WELCOME": "/employer/welcome",
-    "OPEN_POSITIONS": "/employers/open-positions",
-    "COMPANY": "/employers/company",
-    "COMPANY_EDIT": "/employers/company/edit",
-    "FIND_TALENT": "/employers/find_talent",
-    "BOOKMARKED": "/employers/bookmarked",
-    "INTERVIEWS": "/employers/interviews"
+    "POSITIONS": "/employer/positions",
+    "COMPANY": "/employer/company",
+    "COMPANY_EDIT": "/employer/company/edit",
+    "BOOKMARKED": "/employer/bookmarked/talents",
+    "INTERVIEWS": "/employer/interviews"
   },
-  "TALENT_HOME": "/talents/private-area",
-  "PROFILE_CREATE": "/profile-create",
-  "TALENT_PROFILE": "/talent/profile",
-  "JOB_WITH_DETAILS": "/job-details"
+  "TALENT": {
+    "HOME": "/talent/home",
+    "BUILD_PROFILE": "/talent/onboarding",
+    "VIEW_PROFILE": "/talent/profile",
+    "INTERVIEWS": "/talent/interviews",
+    "SETTINGS": "/talent/settings"
+  }
 }

@@ -10,7 +10,7 @@ const MainMenu = ({path, dark, openLoginForm, openSignUpTalent, openSignUpEmploy
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const [mobileMenuVisible, setMobileMenuVisible] = useState(false);
 
-  let grayMode = !(path === routes.COMMON.HOME ||
+  let grayMode = !(path === routes.COMMON.ROOT ||
       path === routes.COMMON.FOR_TALENTS ||
       path === routes.COMMON.FOR_EMPLOYERS || path === routes.COMMON.ABOUT ||
       path === routes.COMMON.BLOG);

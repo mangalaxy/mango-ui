@@ -1,5 +1,5 @@
 import React, {useRef} from 'react';
-import {SideLink} from '../PrivacyPolicy/PrivacyPolicy';
+import {SideLink} from './PrivacyPolicy';
 
 const TermsOfUse = () => {
 

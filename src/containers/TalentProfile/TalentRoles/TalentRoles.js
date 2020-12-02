@@ -17,7 +17,7 @@ function TalentRoles(props) {
     return (
         <div className='talent-form__section'>
             <div className='section-title'>
-                <SvgIcon type={brain(colors.COLOR_PRIMERY)}/>
+                <SvgIcon type={brain(colors.COLOR_PRIMARY)}/>
                 <div className='section-title__text'>Experience & Roles</div>
             </div>
             <div className='section-row'>
