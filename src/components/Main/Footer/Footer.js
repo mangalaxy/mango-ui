@@ -7,7 +7,7 @@ const Footer = () => (
     <div className='footer'  ref={(el) => {window.footer = el;}} >
       <div className='footer__top-section'>
         <div className='logo-container'>
-          <Link to={routes.COMMON.HOME} className='logo'>Mangostart</Link>
+          <Link to={routes.COMMON.ROOT} className='logo'>Mangostart</Link>
         </div>
         <ul className='menuItemsContainer'>
           <li>
@@ -48,20 +48,20 @@ const Footer = () => (
         </li>
         <li>
           <Link to={routes.COMMON.SUPPORT} className='menuItem'>
-            Support
+            Support center
           </Link></li>
         <li>
           <Link to={routes.COMMON.PRIVACY} className='menuItem'>
-            Privacy
+            Privacy policy
           </Link>
         </li>
         <li>
           <Link to={routes.COMMON.TERMS} className='menuItem'>
-            Terms
+            Terms of Service
           </Link>
         </li>
       </ul>
-      <p className='copyright'>Mango &copy; 2019 All rights reserved</p>
+      <p className='copyright'>&copy; 2019-2020 Mangostart. All Rights Reserved.</p>
     </div>
 );
 

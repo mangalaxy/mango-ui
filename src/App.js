@@ -5,8 +5,8 @@ import 'primeicons/primeicons.css';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import routes from './constants/routes.json';
 import MainPage from './containers/Main/MainPage';
-import TalentHome from './containers/Talent/TalentHome';
 import EmployerPage from './containers/Employer/EmployerPage';
+import TalentPage from "./containers/Talent/TalentPage";
 import {ScrollToTop} from "./helpers/helpers";
 
 import './styles/reset.scss';
@@ -18,7 +18,7 @@ const App = () => {
         <Route component={ScrollToTop}/>
         <Switch>
           <Route path={routes.EMPLOYER.HOME} component={EmployerPage}/>
-          <Route path={routes.TALENT.HOME} component={TalentHome}/>
+          <Route path={routes.TALENT.HOME} component={TalentPage}/>
           <Route path={routes.COMMON.ROOT} component={MainPage}/>
 
           {/*<Route path={routes.TALENT_HOME + '/:id/interviews'}*/}

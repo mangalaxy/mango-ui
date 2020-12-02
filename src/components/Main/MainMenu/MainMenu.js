@@ -24,7 +24,7 @@ const MainMenu = ({path, dark, openLoginForm, openSignUpTalent, openSignUpEmploy
             closeMobileMenu={()=>setMobileMenuVisible(false)}
         />}
         <div className='logoContainer'>
-          <Link to={routes.COMMON.HOME} className='logo'>
+          <Link to={routes.COMMON.ROOT} className='logo'>
             Mangostart
           </Link>
         </div>
