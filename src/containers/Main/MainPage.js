@@ -18,6 +18,8 @@ import AppRouter from "./AppRouter";
 import {openLoginForm, openSignUpEmployer, openSignUpTalent} from "./handlers";
 
 import './Main.scss';
+import AppRouter from "./AppRouter";
+import {openLoginForm, openSignUpEmployer, openSignUpTalent} from "./handlers";
 
 const MainPage = ({location}) => {
   return (
