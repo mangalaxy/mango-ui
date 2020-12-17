@@ -6,36 +6,37 @@ import routes from "../../constants/routes.json";
 import SignUpTalentFrame from "../../components/Auth/SignUpTalent/SignUpTalentFrame";
 import SignUpEmployerFrame from "../../components/Auth/SignUpEmployer/SignUpEmployerFrame";
 
-export const openLoginForm = () => {
-  const width = adjustWidth();
-  const height = adjustHeight();
-  if (width > 800 && height > 600) {
-    renderModal(<LoginFrame
+export const openLoginForm = (history) => {
+    const width = adjustWidth();
+    const height = adjustHeight();
+    if (width > 800 && height > 600) {
+        renderModal(<LoginFrame
+                history={history}
                 handleSignUpTalent={openSignUpTalent}
                 handleSingUpEmployer={openSignUpEmployer}
-          />
-    )
-  } else {
-    document.location.href = routes.COMMON.LOGIN;
-  }
+            />
+        )
+    } else {
+        document.location.href = routes.COMMON.LOGIN;
+    }
 }
 
 export const openSignUpTalent = () => {
-  const width = adjustWidth();
-  const height = adjustHeight();
-  if (width > 800 && height > 600) {
-    renderModal(<SignUpTalentFrame handleSignIn={openLoginForm}/>);
-  } else {
-    document.location.href = routes.COMMON.SIGNUP_TALENT;
-  }
+    const width = adjustWidth();
+    const height = adjustHeight();
+    if (width > 800 && height > 600) {
+        renderModal(<SignUpTalentFrame handleSignIn={openLoginForm}/>);
+    } else {
+        document.location.href = routes.COMMON.SIGNUP_TALENT;
+    }
 }
 
 export const openSignUpEmployer = () => {
-  const width = adjustWidth();
-  const height = adjustHeight();
-  if (width > 800 && height > 600) {
-    renderModal(<SignUpEmployerFrame handleSignIn={openLoginForm}/>);
-  } else {
-    document.location.href = routes.COMMON.SIGNUP_EMPLOYER;
-  }
+    const width = adjustWidth();
+    const height = adjustHeight();
+    if (width > 800 && height > 600) {
+        renderModal(<SignUpEmployerFrame handleSignIn={openLoginForm}/>);
+    } else {
+        document.location.href = routes.COMMON.SIGNUP_EMPLOYER;
+    }
 }

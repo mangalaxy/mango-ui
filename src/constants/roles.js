@@ -1,0 +1,4 @@
+export const ROLES = {
+EMPLOYER: "ROLE_EMPLOYER",
+    TALENT: "ROLE_TALENT"
+}

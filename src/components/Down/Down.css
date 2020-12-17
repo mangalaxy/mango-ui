@@ -1,6 +1,0 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Carter+One&display=swap");
-.down {
-  transition: all 0.5s; }
-  .down.active {
-    transform: rotateZ(180deg); }

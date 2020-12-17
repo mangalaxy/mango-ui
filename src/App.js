@@ -20,11 +20,6 @@ const App = () => {
           <Route path={routes.EMPLOYER.HOME} component={EmployerPage}/>
           <Route path={routes.TALENT.HOME} component={TalentPage}/>
           <Route path={routes.COMMON.ROOT} component={MainPage}/>
-
-          {/*<Route path={routes.TALENT_HOME + '/:id/interviews'}*/}
-          {/*       component={ProfileInterview}/>*/}
-          {/*<Route path={routes.PROFILE_CREATE} component={CreateProfile}/>*/}
-          {/*<Route path={routes.TALENT_PROFILE} component={TalentProfile}/>*/}
         </Switch>
       </Router>
   )
