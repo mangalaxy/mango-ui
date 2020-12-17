@@ -8,13 +8,13 @@ const EmployerMenu = ({ user, theme = null }) => {
   return (
       <div className={`employerMenuContainer ${theme}`}>
         <div>
-          <Link to={routes.EMPLOYERS.HOME} className='logo'>
+          <Link to={routes.EMPLOYER.HOME} className='logo'>
             mangostart
           </Link>
         </div>
         <ul className='menuItemsContainer'>
           <li>
-            <NavLink to={routes.EMPLOYERS.POSITIONS}
+            <NavLink to={routes.EMPLOYER.POSITIONS}
                      className='menuItem'
                      activeClassName={'menuItem active'}>
               My positions
@@ -22,21 +22,21 @@ const EmployerMenu = ({ user, theme = null }) => {
           </li>
 
           <li>
-            <NavLink to={routes.EMPLOYERS.BOOKMARKED}
+            <NavLink to={routes.EMPLOYER.BOOKMARKED}
                      className='menuItem'
                      activeClassName={'menuItem active'}>
               Bookmarked
             </NavLink>
           </li>
           <li>
-            <NavLink to={routes.EMPLOYERS.INTERVIEWS}
+            <NavLink to={routes.EMPLOYER.INTERVIEWS}
                      className='menuItem'
                      activeClassName={'menuItem active'}>
               Interviews
             </NavLink>
           </li>
           <li>
-            <NavLink to={routes.EMPLOYERS.COMPANY}
+            <NavLink to={routes.EMPLOYER.COMPANY}
                      className='menuItem'
                      activeClassName={'menuItem active'}>
               My company
