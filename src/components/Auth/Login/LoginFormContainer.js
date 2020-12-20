@@ -18,7 +18,7 @@ const loginFormSchema = Yup.object().shape(
     },
 );
 
-const LoginFormContainer = ({history}) => (
+const LoginFormContainer = ({history, setRole}) => (
     <Formik onSubmit={(
         {email, password, rememberMe},
         {resetForm, setStatus, setSubmitting}) => {
@@ -27,18 +27,21 @@ const LoginFormContainer = ({history}) => (
         let data = {};
         data.email = email;
         data.password = password;
-        data.rememberMe = rememberMe;
-        // TODO: do query to API
         loginService.login(email, password).then(res => {
           if (res.data.accessToken) {
             let token = res.data.accessToken;
             loginService.setToken(token);
+            sessionStorage.setItem('usr', token);
+            if (rememberMe) {
+              localStorage.setItem('usr', token);
+            } else localStorage.removeItem('usr');
             let role = loginService.getRole(token);
-            console.log('ROLE:', role);
             if (role === ROLES.EMPLOYER) {
-              history.push(routes.EMPLOYER.HOME);
+              setRole(ROLES.EMPLOYER);
+              history.replace(routes.EMPLOYER.HOME);
             } else if (role === ROLES.TALENT) {
-              history.push(routes.TALENT.HOME);
+              setRole(ROLES.TALENT);
+              history.replace(routes.TALENT.HOME);
             }
           } else {
             //TODO: set error
@@ -51,7 +54,6 @@ const LoginFormContainer = ({history}) => (
         setStatus({failed: true});
         setSubmitting(false);
       }
-
     }
     }
             component={LoginForm}

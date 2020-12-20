@@ -6,12 +6,13 @@ import routes from "../../constants/routes.json";
 import SignUpTalentFrame from "../../components/Auth/SignUpTalent/SignUpTalentFrame";
 import SignUpEmployerFrame from "../../components/Auth/SignUpEmployer/SignUpEmployerFrame";
 
-export const openLoginForm = (history) => {
+export const openLoginForm = (history, setRole) => {
     const width = adjustWidth();
     const height = adjustHeight();
     if (width > 800 && height > 600) {
         renderModal(<LoginFrame
                 history={history}
+                setRole={setRole}
                 handleSignUpTalent={openSignUpTalent}
                 handleSingUpEmployer={openSignUpEmployer}
             />

@@ -5,13 +5,16 @@ import AppRouter from "./AppRouter";
 import {openLoginForm, openSignUpEmployer, openSignUpTalent} from "./handlers";
 
 import './Main.scss';
+import {useHistory, useLocation} from 'react-router';
 
-const MainPage = ({location, history}) => {
+const MainPage = ({setRole}) => {
+  const history=useHistory();
+  const location=useLocation();
   return (
         <div className='main'>
           <MainMenu
-                path={location.pathname}
-                openLoginForm={()=>openLoginForm(history)}
+                path={location?.pathname}
+                openLoginForm={()=>openLoginForm(history, setRole)}
                 openSignUpTalent={openSignUpTalent}
                 openSignUpEmployer={openSignUpEmployer}
           />

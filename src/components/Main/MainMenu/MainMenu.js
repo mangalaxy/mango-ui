@@ -6,7 +6,7 @@ import routes from '../../../constants/routes.json';
 import './MainMenu.scss';
 import MobileMenu from '../MobileMenu/MobileMenu';
 
-const MainMenu = ({path, dark, openLoginForm, openSignUpTalent, openSignUpEmployer}) => {
+const MainMenu = ({path, openLoginForm, openSignUpTalent, openSignUpEmployer}) => {
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const [mobileMenuVisible, setMobileMenuVisible] = useState(false);
 

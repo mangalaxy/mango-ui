@@ -4,7 +4,7 @@
 .interviews {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 60px);
   @include cover-background('../assets/images/profile-background.png');
   font-family: $base-font-family;
 

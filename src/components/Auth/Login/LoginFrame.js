@@ -16,7 +16,7 @@ const LoginFrame = ({
                       handleForgotPassword,
                       handleSignUpTalent,
                       handleSingUpEmployer,
-                      history,
+                      history,setRole
                     }) => {
   return (
       <div className="authContainer">
@@ -26,6 +26,7 @@ const LoginFrame = ({
             <LoginFormContainer
                 handleForgotPassword={handleForgotPassword}
                 history={history}
+                setRole={setRole}
             />
             <p>Don’t have an account? Sign up <span
                 onClick={handleSignUpTalent}>as talent</span> or <span

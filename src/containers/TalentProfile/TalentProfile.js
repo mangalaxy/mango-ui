@@ -96,9 +96,7 @@ function TalentProfile(props) {
         <div className='talent-profile'>
           <div className='talent-profile--filter'>
           </div>
-          <div className='talent-profile__header'>
-            <MainMenu grey dark />
-          </div>
+
           <div className='talent-profile__container'>
             <form className='talent-form'>
               {

@@ -20,7 +20,7 @@ const CompanyHeader = ({logoUrl, name, headline, address}) => {
                 <h5 className="company-location">{address}</h5>
               </div>
             </div>
-            <Link to={routes.EMPLOYERS.COMPANY_EDIT}>
+            <Link to={routes.EMPLOYER.COMPANY_EDIT}>
               <div className="editButton">
                 <EditIcon size={25}/>
               </div>

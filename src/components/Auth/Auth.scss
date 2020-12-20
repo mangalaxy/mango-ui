@@ -151,4 +151,21 @@
       }
     }
   }
+
+  .logoutMessage{
+    padding: 35px 50px;
+    background-color: white;
+    border-radius: 15px;
+    h3{
+      font-size: 24px;
+      margin-bottom: 50px;
+    }
+
+    .buttonsContainer{
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-around;
+    }
+  }
 }

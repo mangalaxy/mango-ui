@@ -18,7 +18,7 @@
     "POST": "/post"
   },
   "EMPLOYER": {
-    "HOME": "/employer/home",
+    "HOME": "/",
     "WELCOME": "/employer/welcome",
     "POSITIONS": "/employer/positions",
     "COMPANY": "/employer/company",
@@ -27,7 +27,7 @@
     "INTERVIEWS": "/employer/interviews"
   },
   "TALENT": {
-    "HOME": "/talent/home",
+    "HOME": "/talent/",
     "BUILD_PROFILE": "/talent/onboarding",
     "VIEW_PROFILE": "/talent/profile",
     "INTERVIEWS": "/talent/interviews",
