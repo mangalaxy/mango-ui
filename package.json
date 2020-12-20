@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.21.0",
     "formik": "^2.0.3",
+    "jwt-decode": "^3.1.2",
     "moment": "^2.26.0",
-    "primeicons": "^1.0.0",
-    "primereact": "^3.1.7",
+    "primeicons": "^4.1.0",
+    "primereact": "^5.0.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-dropdown-select": "^3.7.0",
@@ -59,5 +61,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "http://mangostart-env.eba-qjsxjkb7.us-east-2.elasticbeanstalk.com"
 }

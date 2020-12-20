@@ -25,7 +25,7 @@ const CompanyEdit = ({companyProfile, history}) => {
   const handleSave = (companyProfile) => {
     console.log('SAVED!');
    //TODO: send company data to backend
-    history.push(routes.EMPLOYERS.COMPANY);
+    history.push(routes.EMPLOYER.COMPANY);
   };
 
   return (

@@ -6,7 +6,7 @@ import planet from '../../../assets/icons/planet-earth.svg';
 import city from '../../../assets/icons/city.svg';
 import briefcase from '../../../assets/icons/case.svg';
 import quotes from '../../../assets/icons/quotes.svg';
-import {Growl} from 'primereact/growl';
+import { Toast } from 'primereact/toast';
 import AboutContactForm from '../../Forms/AboutContactForm';
 import company from '../../../mocks/companyInfo';
 
@@ -34,7 +34,7 @@ const About = () => {
 
   return (
       <>
-        <Growl ref={growl}/>
+        <Toast ref={growl}/>
         <div className='bannerContainer fit-content' id='about-banner'>
           <div className="imageFilter"/>
           <div className="container">

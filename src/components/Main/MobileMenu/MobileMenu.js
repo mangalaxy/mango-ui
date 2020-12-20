@@ -30,7 +30,7 @@ const MobileMenu = ({openLoginForm, openSignUpTalent, openSignUpEmployer, closeM
         <div className='mobile-content'>
           <div className='mobile-header'>
             <div className='logo' onClick={closeMobileMenu}>
-              <Link to={routes.COMMON.HOME} className='logo'>
+              <Link to={routes.COMMON.ROOT} className='logo'>
                 Mangostart
               </Link>
             </div>

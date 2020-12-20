@@ -1,10 +1,17 @@
 import React from 'react';
 import {Link, NavLink} from 'react-router-dom';
 import routes from '../../../constants/routes.json';
-
 import './EmloyerMenu.scss';
+import loginService from '../../../services/loginService'
+import {useHistory} from 'react-router';
 
-const EmployerMenu = ({ user, theme = null }) => {
+const EmployerMenu = ({ user,setRole, theme = null }) => {
+  const history = useHistory();
+  const goMain=()=>{
+    setRole(null);
+    history.replace(routes.COMMON.ROOT)
+  }
+
   return (
       <div className={`employerMenuContainer ${theme}`}>
         <div>
@@ -50,7 +57,7 @@ const EmployerMenu = ({ user, theme = null }) => {
             </span>
           </div>
           <div>
-            <Link className='menuItem authBlock' to='/sign-out'>Sign out</Link>
+            <span className='menuItem authBlock' onClick={()=>loginService.logout(goMain)}>Sign out</span>
           </div>
         </div>
       </div>

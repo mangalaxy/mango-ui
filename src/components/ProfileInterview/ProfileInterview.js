@@ -44,10 +44,7 @@ function ProfileInterview(props) {
 
     return (
         <Fragment>
-            <div className='interviews-header'>
-                <MainMenu grey dark />
-            </div>
-            <div className='interviews'>
+              <div className='interviews'>
                 <div className='interviews-container'>
                     <div className='interviews-requests'>
                         <h2 className='interviews__title'>interview requests</h2>
