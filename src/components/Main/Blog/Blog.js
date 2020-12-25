@@ -1,9 +1,28 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useEffect} from 'react';
 import search from '../../../assets/icons/search.svg';
-
+import {getPosts} from '../../../actions/posts';
+import {connect} from 'react-redux';
+import ReactPaginate from 'react-paginate';
+import {NavLink} from 'react-router-dom';
+import routes from '../../../constants/routes.json';
+import Preloader from '../../Preloader/preloader'
 import './Blog.scss';
 
+const elemenstPerPage = 1;
+
 function Blog(props) {
+    const {posts, postsLoading, getAllPosts} = props;
+    const {content = [], totalPages, number} = posts;
+    useEffect(() => {
+        getAllPosts(0);
+    },[]);
+
+    const changePage = () => {
+        getAllPosts(number + 1);
+    }
+
+    if (postsLoading) return <Preloader/>
+
     return (
         <Fragment>
         <section className='blog-header'>
@@ -14,58 +33,23 @@ function Blog(props) {
         <section className='blog-container'>
             <div className='blog-content'>
                 <ul className='blog-list'>
-                    <li className='blog-item'>
-                        <div className='blog-item__description'>december, 17 2019 by tom rise in interview process</div>
-                        <h2 className='blog-item__header'>9 tips for effective interviewing</h2>
-                        <div className='blog-item__container'>
-                            <div className='blog-item__icon'></div>
-                            <div className='blog-item__text'>
-                                As a job candidate, your No. 1 goal is to present and, when possible,
-                                highlight for your evaluators the strong points of your training, experience,
-                                ability and potential. Here are some tips to help you achieve that goal.
-                            </div>
-                        </div>
-                        <div className='blog-item__link'>continue reading</div>
-                    </li>
-                    <li className='blog-item'>
-                        <div className='blog-item__description'>december, 17 2019 by tom rise in interview process</div>
-                        <h2 className='blog-item__header'>9 tips for effective interviewing</h2>
-                        <div className='blog-item__container'>
-                            <div className='blog-item__icon'></div>
-                            <div className='blog-item__text'>
-                                As a job candidate, your No. 1 goal is to present and, when possible,
-                                highlight for your evaluators the strong points of your training, experience,
-                                ability and potential. Here are some tips to help you achieve that goal.
-                            </div>
-                        </div>
-                        <div className='blog-item__link'>continue reading</div>
-                    </li>
-                    <li className='blog-item'>
-                        <div className='blog-item__description'>december, 17 2019 by tom rise in interview process</div>
-                        <h2 className='blog-item__header'>9 tips for effective interviewing</h2>
-                        <div className='blog-item__container'>
-                            <div className='blog-item__icon'></div>
-                            <div className='blog-item__text'>
-                                As a job candidate, your No. 1 goal is to present and, when possible,
-                                highlight for your evaluators the strong points of your training, experience,
-                                ability and potential. Here are some tips to help you achieve that goal.
-                            </div>
-                        </div>
-                        <div className='blog-item__link'>continue reading</div>
-                    </li>
-                    <li className='blog-item'>
-                        <div className='blog-item__description'>december, 17 2019 by tom rise in interview process</div>
-                        <h2 className='blog-item__header'>9 tips for effective interviewing</h2>
-                        <div className='blog-item__container'>
-                            <div className='blog-item__icon'></div>
-                            <div className='blog-item__text'>
-                                As a job candidate, your No. 1 goal is to present and, when possible,
-                                highlight for your evaluators the strong points of your training, experience,
-                                ability and potential. Here are some tips to help you achieve that goal.
-                            </div>
-                        </div>
-                        <a className='blog-item__link' href="http://localhost:3000/post">continue reading</a>
-                    </li>
+                    {
+                        content.map(post => {
+                            return (
+                                <li className='blog-item'>
+                                    <div className='blog-item__description'>{`${post.createdDate.slice(0, 10)} by ${post.author} in interview process`}</div>
+                                    <h2 className='blog-item__header'>{post.headline}</h2>
+                                    <div className='blog-item__container'>
+                                        <div className='blog-item__icon' style={{backgroundImage: `url(${post.imageUrl})`}}></div>
+                                        <div className='blog-item__text'>
+                                            {post.content}
+                                        </div>
+                                    </div>
+                                    <div className='blog-item__link'><NavLink to={routes.COMMON.POST}>continue reading</NavLink></div>
+                                </li>
+                            )
+                        })
+                    }
                 </ul>
             </div>
             <div className='blog-sidebar'>
@@ -78,12 +62,11 @@ function Blog(props) {
                 <h2 className='posts-title'>Latest posts</h2>
                 <div className='posts-menu'>
                     <ul className='posts-list'>
-                        <li className="posts-list__item">9 tips for effective interviewing</li>
-                        <li className="posts-list__item">Why is important to be great
-                            developer</li>
-                        <li className="posts-list__item">Salary expectations in 2019</li>
-                        <li className="posts-list__item">Hired over 1M in Amazon company</li>
-                        <li className="posts-list__item">How to Attract, Source and Retain Top Tech Talent</li>
+                        {
+                            content.map(post => {
+                                return <li className="posts-list__item"><NavLink to={routes.COMMON.POST}>{post.headline}</NavLink></li>
+                            })
+                        }
                     </ul>
                 </div>
                 <h2 className='posts-title'>categories</h2>
@@ -103,8 +86,34 @@ function Blog(props) {
                 </form>
             </div>
         </section>
+            <div className='blog-pagination-container'>
+                <ReactPaginate
+                    pageCount={totalPages}
+                    containerClassName='jobs-pagination'
+                    pageClassName='jobs-pagination__item'
+                    pageLinkClassName='jobs-pagination__link'
+                    activeLinkClassName='jobs-pagination__link--active'
+                    onPageChange={() => changePage()}
+                    previousLinkClassName='jobs-pagination__link--prev'
+                    nextLinkClassName='jobs-pagination__link--next'
+                    nextLabel=''
+                    previousLabel=''
+                />
+            </div>
         </Fragment>
     )
 }
 
-export default Blog;
+const mapStateToProps = ({posts}) => {
+    return {
+        posts: posts.posts,
+        postsLoading: posts.postsLoading,
+    }
+};
+
+const mapDispatchToProps = dispatch => ({
+    getAllPosts: (pageNumber, pageSize) => dispatch(getPosts(pageNumber, pageSize))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Blog);
+
