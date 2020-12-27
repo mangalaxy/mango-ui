@@ -1,9 +1,9 @@
 import React from 'react';
-import {Circle} from 'react-preloaders';
+import './Preloader.scss';
 
 const Preloader = () => {
     return (
-        <Circle color={'#FF8080'} />
+        <div className='loader '></div>
     )
 };
 

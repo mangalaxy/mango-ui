@@ -1,4 +1,4 @@
-import {POSTS} from "../actions/action_types";
+import * as TYPES from "../actions/action_types";
 
 const initialState = {
     posts: {},
@@ -7,9 +7,9 @@ const initialState = {
 
 const posts = (state = initialState, action) => {
     switch (action.type) {
-        case POSTS.GEL_POSTS:
+        case TYPES.LOAD_POSTS:
             return {...state, posts: action.payload}
-        case POSTS.POSTS_LOADING:
+        case TYPES.POSTS_LOADING:
             return {...state, postsLoading: action.payload}
         default:
             return {...state}
