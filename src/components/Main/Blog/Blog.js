@@ -28,18 +28,21 @@ function Blog(props) {
             </section>
             <PostList posts={content}/>
             <div className='blog-pagination-container'>
-                <ReactPaginate
-                    pageCount={totalPages || 0}
-                    containerClassName='jobs-pagination'
-                    pageClassName='jobs-pagination__item'
-                    pageLinkClassName='jobs-pagination__link'
-                    activeLinkClassName='jobs-pagination__link--active'
-                    onPageChange={() => changePage()}
-                    previousLinkClassName='jobs-pagination__link--prev'
-                    nextLinkClassName='jobs-pagination__link--next'
-                    nextLabel=''
-                    previousLabel=''
-                />
+                {
+                    totalPages > 1 &&
+                    <ReactPaginate
+                        pageCount={totalPages || 0}
+                        containerClassName='jobs-pagination'
+                        pageClassName='jobs-pagination__item'
+                        pageLinkClassName='jobs-pagination__link'
+                        activeLinkClassName='jobs-pagination__link--active'
+                        onPageChange={() => changePage()}
+                        previousLinkClassName='jobs-pagination__link--prev'
+                        nextLinkClassName='jobs-pagination__link--next'
+                        nextLabel=''
+                        previousLabel=''
+                    />
+                }
             </div>
         </Fragment>
     )

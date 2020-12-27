@@ -7,7 +7,7 @@ import moment from 'moment';
 const PostList = (props) => {
     const {posts} = props;
     const getDate = date => {
-        return moment(date).format('MMMM Do YYYY');
+        return moment(date).format('ll');
     };
 
     return (
