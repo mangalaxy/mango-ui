@@ -31,7 +31,7 @@ const LoginForm = (props) => {
               component={FKCheckbox}
               disabled={isSubmitting}
               name='remember'
-              label='Remember me'
+              label='Keep me signed in'
           />
           <a className='link' href='#'>Forgot password?</a>
         </div>

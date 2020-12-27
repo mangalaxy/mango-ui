@@ -1,22 +1,10 @@
 import React from 'react';
 import {Formik} from 'formik';
-import * as Yup from 'yup';
 import LoginForm from './LoginForm';
 import loginService from '../../../services/loginService';
 import {ROLES} from '../../../constants/roles';
 import routes from '../../../constants/routes.json';
-
-const loginFormSchema = Yup.object().shape(
-    {
-      password: Yup.string().
-          min(2, 'Minimum 2 symbols').
-          max(30, 'Maximum 30 symbols').
-          required('Required field'),
-      email: Yup.string().
-          email('Invalid email format').
-          required('Required field'),
-    },
-);
+import {loginFormSchema} from '../../../validationSchema/authSchema';
 
 const LoginFormContainer = ({history, setRole}) => (
     <Formik onSubmit={(
