@@ -1,27 +1,43 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {facebook, like, twitter} from "../../../assets/icons";
 import SvgIcon from '../../../components/SvgIcon/SvgIcon';
 import PostItem from './PostItem/PostItem'
 import {mockPosts} from '../../../mocks/posts';
 import {Link} from 'react-router-dom'
-
+import routes from '../../../constants/routes.json';
+import {getPostById, getPosts} from '../../../actions/posts';
+import {connect} from 'react-redux';
+import Preloader from '../../Preloader/Preloader';
+import moment from 'moment';
 import './Post.scss'
 
-const Post = ({match}) => {
-  const id = match.params.id;
+const Post = (props) => {
+  const {postById, postByIdLoading, getPost} = props;
+  const id = props.match.params.id;
+
+    const getDate = date => {
+        return moment(date).format('ll');
+    };
+
+  useEffect(() => {
+    getPost(id);
+  }, []);
+
+  if (postByIdLoading) return <Preloader/>;
+
   return (
         <div className='info'>
           <div className='info__container'>
             <div className='info__bread-crumbs'>
-              Blog > Interview process > 9 tips for effective interview
+                <Link to={routes.COMMON.BLOG}>Blog</Link> > {postById.headline}
             </div>
-            <h1 className='info__title'>9 tips for effective interview</h1>
-            <div className="info__description">17 December 2019 by Tom Rise in
+            <h1 className='info__title'>{postById.headline}</h1>
+            <div className="info__description">{`${getDate(postById.createdDate)} by ${postById.author} in `}
               <Link to={'/interview-process'} className='info-description-link'>Interview process</Link>
             </div>
             <div className='info__main-photo'>
               <img className='info-main-img'
-                   src='https://info.info/sites/afilias-tld/files/styles/homepage_image/public/Phase2-Slide-%28final%29_3.jpg?itok=7H6kVDrv'
+                   src={postById.imageUrl}
                    alt='Preview'/>
             </div>
             <div className='info__content'>
@@ -31,27 +47,7 @@ const Post = ({match}) => {
                 <div className='info__sidebar-item'><SvgIcon className='info__sidebar-item' type={facebook()}/></div>
               </div>
               <div className='info__text'>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                  et dolore magna aliqua. Enim ut sem viverra aliquet eget sit. At volutpat diam ut venenatis tellus in.
-                  Morbi tristique senectus et netus. Sagittis purus sit amet volutpat consequat mauris nunc.
-                </p>
-                <p>Quam lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit. Donec ultrices tincidunt arcu
-                  non sodales. Nulla facilisi nullam vehicula ipsum. Neque convallis a cras semper auctor neque vitae
-                  tempus. Faucibus interdum posuere lorem ipsum dolor sit amet consectetur adipiscing.
-                </p>
-                <p>Ac felis donec et odio pellentesque diam volutpat commodo sed. Faucibus turpis in eu mi bibendum
-                  neque egestas congue. Quis risus sed vulputate odio ut. Suspendisse potenti nullam ac tortor. Auctor
-                  eu augue ut lectus arcu bibendum at varius vel. Rutrum quisque non tellus orci ac auctor augue mauris
-                  augue. Sit amet nulla facilisi morbi tempus iaculis urna id. In egestas erat imperdiet sed euismod
-                  nisi porta lorem mollis.
-                </p>
-                <p>Quisque sagittis purus sit amet volutpat consequat mauris nunc congue. Mi tempus imperdiet nulla
-                  malesuada pellentesque. In tellus integer feugiat scelerisque varius morbi enim nunc. Est ullamcorper
-                  eget nulla facilisi etiam. Viverra vitae congue eu consequat ac. Vitae auctor eu augue ut lectus arcu.
-                </p>
-                <p>Lacus vestibulum sed arcu non odio euismod lacinia. In eu mi bibendum neque egestas congue. Elit ut
-                  aliquam purus sit amet luctus venenatis. Ornare massa eget egestas purus.
-                </p>
+                  {postById.content}
                 <div className='info__bottom-sidebar'>
                   <div className='info__bottom-item'><SvgIcon className='info__sidebar-item' type={like()}/></div>
                   <div className='info__bottom-item'><SvgIcon className='info__sidebar-item' type={twitter()}/></div>
@@ -68,6 +64,17 @@ const Post = ({match}) => {
           </div>
         </div>
   )
-}
+};
 
-export default Post;
+const mapStateToProps = ({posts}) => {
+    return {
+        postById: posts.postById,
+        postByIdLoading: posts.postByIdLoading,
+    }
+};
+
+const mapDispatchToProps = dispatch => ({
+    getPost: id => dispatch(getPostById(id))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Post);

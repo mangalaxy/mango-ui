@@ -26,7 +26,7 @@ const PostList = (props) => {
                                             {post.opening}
                                         </div>
                                     </div>
-                                    <div className='blog-item__link'><NavLink to={routes.COMMON.POST}>continue reading</NavLink></div>
+                                    <div className='blog-item__link'><NavLink to={routes.COMMON.POST + `/${post.id}`}>continue reading</NavLink></div>
                                 </li>
                             )
                         })
@@ -45,7 +45,7 @@ const PostList = (props) => {
                     <ul className='posts-list'>
                         {
                             posts.map(post => {
-                                return <li className="posts-list__item" key={post.id}><NavLink to={routes.COMMON.POST}>{post.headline}</NavLink></li>
+                                return <li className="posts-list__item" key={post.id}><NavLink to={routes.COMMON.POST + `/${post.id}`}>{post.headline}</NavLink></li>
                             })
                         }
                     </ul>
