@@ -245,6 +245,10 @@ p {
 .accent-btn {
   background: $brand-color;
   border: 2px solid $brand-color;
+  &:disabled{
+    background-color: #7e7c7c;
+    border: 2px solid #7e7c7c;
+  }
 }
 
 .accent-btn__inverted {

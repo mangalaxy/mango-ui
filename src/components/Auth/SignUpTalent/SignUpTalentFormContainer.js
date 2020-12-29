@@ -1,55 +1,77 @@
 import {Formik} from 'formik';
-import React from 'react';
-import * as Yup from 'yup';
+import React, {useState, useEffect} from 'react';
 import SignUpFormView from '../SignUpEmployer/SignUpForm';
+import {signUpTalentSchema} from '../../../validationSchema/authSchema';
+import commonService from '../../../services/commonService';
+import loginService from '../../../services/loginService';
+import {destroyModal} from '../../../services/renderModal';
+import {Button} from 'primereact/button';
 
-const contactSchema = Yup.object().shape(
-      {
-        name: Yup.string()
-              .min(2, 'Minimum 2 symbols')
-              .max(30, 'Maximum 30 symbols')
-              .required('Required field'),
-        email: Yup.string()
-              .email('Invalid email format')
-              .required('Required field'),
-        message: Yup.string()
-              .required('Required field'),
-      }
-);
+const SignUpTalentFormContainer = ({success, setSuccess}) => {
+  const [locations, setLocations] = useState([]);
 
-const SignUpTalentFormContainer = ({onSuccess, onError}) => (
-      <Formik onSubmit={(
-                  {email, password, rememberMe}, {resetForm, setStatus, setSubmitting}) => {
-              setStatus({});
-              try {
-                let data = {};
-                data.email = email;
-                data.password = password;
-                data.rememberMe = rememberMe;
+  useEffect(() => {
+    commonService.getLocations().then(res => {
+      setLocations(res.data);
+    }).catch(err => {
+      console.log('Can not get locations');
+    });
+  }, []);
 
-                // TODO: do query to API
-                onSuccess();
-                resetForm();
-              } catch (err) {
-                setStatus({failed: true});
-                setSubmitting(false);
-                onError();
-              }
+  return (<>
+        {success ?
+            <div>
+              <h3 className='successMessage header'>
+                You are successfully registered! <br/>
+              </h3>
+              <h4 className='successMessage'>
+                Please, check your email and
+                confirm registration</h4>
+              <div className="buttonContainer">
+                <Button label='Close' onClick={destroyModal}/>
+              </div>
+            </div> :
+            <Formik
+                onSubmit={(
+                    values,
+                    {resetForm, setStatus, setSubmitting}) => {
+                  setStatus({});
+                  try {
+                    let data = {};
+                    data.fullName = values.fullName;
+                    data.email = values.email;
+                    data.password = values.password;
+                    data.location = locations.find(
+                        el => el.id === values.location.code);
+                    console.log(data);
+                    loginService.signUpTalent(data).then(res => {
+                      if (res.data?.success) {
+                        setSubmitting(false);
+                        resetForm();
+                        setSuccess(true);
+                      }
+                    }).catch(err => {
+                      setSubmitting(false);
+                    });
+                    setSubmitting(false);
+                    resetForm();
+                  } catch (err) {
+                    setStatus({failed: true});
+                    setSubmitting(false);
+                  }
+                }
+                }
+                component={SignUpFormView}
+                validationSchema={signUpTalentSchema}
+                enableReinitialize={true}
+                initialValues={{
+                  locations: locations.map(
+                      el => ({name: `${el.city}/${el.country}`, code: el.id})),
+                }}
+            />}
+      </>
+  );
+}
+;
 
-            }
-            }
-            component={SignUpFormView}
-            validationSchema={contactSchema}
-            initialValues={{
-              locations: [
-                {name: 'London', code: 'LDN'},
-                {name: 'New York', code: 'NY'},
-                {name: 'Rome', code: 'RM'},
-                {name: 'Paris', code: 'PRS'},
-                {name: 'Istanbul', code: 'IST'}
-              ]
-            }}
-      />
-);
-
-export default SignUpTalentFormContainer
+export default SignUpTalentFormContainer;

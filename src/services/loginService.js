@@ -4,13 +4,11 @@ import decode from 'jwt-decode';
 import axios from 'axios';
 import {renderModal} from './renderModal';
 import LogoutMessage from '../components/Auth/Logout/Logout';
-import {useHistory} from 'react-router';
-import routes from '../constants/routes.json';
 
 let intercept = null;
 
 const login = async (email, password) => {
-  return axios.post(API.login, {email, password});
+  return axios.post(API.AUTH.login, {email, password});
 };
 
 const setToken = token => {
@@ -28,7 +26,7 @@ const getRole = token => {
 };
 
 const logout = (goMain) => {
-  const handleLogout = ()=>{
+  const handleLogout = () => {
     sessionStorage.clear();
     localStorage.clear();
     if (intercept) {
@@ -36,10 +34,8 @@ const logout = (goMain) => {
       intercept = null;
     }
     goMain();
-  }
+  };
   renderModal(<LogoutMessage handleLogout={handleLogout}/>);
-
-
 };
 
 const getStoredUser = () => {
@@ -61,4 +57,16 @@ const getStoredUser = () => {
   return null;
 };
 
-export default ({login, setToken, getRole, logout, getStoredUser});
+const signUpTalent = data => (axios.post(API.AUTH.registerTalent, data));
+
+const signUpEmployer = data => (axios.post(API.AUTH.registerEmployer, data));
+
+export default ({
+  login,
+  setToken,
+  getRole,
+  logout,
+  getStoredUser,
+  signUpTalent,
+  signUpEmployer,
+});

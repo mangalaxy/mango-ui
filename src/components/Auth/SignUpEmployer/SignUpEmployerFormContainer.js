@@ -1,66 +1,88 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Formik} from 'formik';
 import SignUpFormView from './SignUpForm';
-import * as Yup from 'yup';
+import {Button} from 'primereact/button';
+import {destroyModal} from '../../../services/renderModal';
+import {employerSignUpSchema} from '../../../validationSchema/authSchema';
+import commonService from '../../../services/commonService';
+import loginService from '../../../services/loginService';
 
-const employerSignUpSchema = Yup.object().shape({
-  fullName: Yup.string()
-        .min(3, 'Minimum 3 characters')
-        .max(60, 'Maximum 60 characters')
-        .required('Required field'),
-  email: Yup.string()
-        .email('Invalid email format')
-        .required('Required field'),
-  phone: Yup.string()
-        .required('Phone required'),
-  company: Yup.string()
-        .required('Required field'),
-});
+const SignUpEmployerFormContainer = ({success, setSuccess}) => {
+  const [locations, setLocations] = useState([]);
 
-const handleSubmit = (onSuccess, onError) => (
-      {fullName, email, phone, company, jobTitle, location},
-      {resetForm, setStatus, setSubmitting}
-) => {
-  setStatus({});
-  try {
-    let employer = {}
-    employer.fullName = fullName
-    employer.email = email
-    employer.phone = phone
-    employer.company = company
-    employer.jobTitle = jobTitle
-    employer.location = location;
-    //TODO: do query to API
-    const response = new Promise()
-    onSuccess(response);
-    resetForm();
-  } catch (err) {
-    setStatus({failed: true});
-    setSubmitting(false);
-    onError(err);
-  }
+  useEffect(() => {
+    commonService.getLocations().then(res => {
+      setLocations(res.data);
+    }).catch(err => {
+      console.log('Can not get locations');
+    });
+  }, []);
 
-}
+  const handleSubmit = (
+      {fullName, email, phone, companyName, jobTitle, location, password},
+      {setFieldError, setSubmitting},
+  ) => {
+    try {
+      let employer = {};
+      employer.fullName = fullName;
+      employer.email = email;
+      employer.phone = phone;
+      employer.companyName = companyName;
+      employer.jobTitle = jobTitle;
+      employer.location = locations.find(el => el.id === location.code);
+      employer.password = password;
+      loginService.signUpEmployer(employer).
+          then(res => {
+            if (res.data?.success) {
+              setSubmitting(false);
+              setSuccess(true);
+            }
+          }).catch(err => {
+        setSubmitting(false);
+        setFieldError('email', 'Email already registered');
+      });
+    } catch (err) {
+      setSubmitting(false);
+      setFieldError('email', 'Email already registered');
+    }
+  };
 
-const SignUpEmployerFormContainer = ({onSuccess, onError}) => {
-  return (
-        <Formik onSubmit={handleSubmit(onSuccess, onError)}
-                component={SignUpFormView}
-                validationSchema={employerSignUpSchema}
-                initialValues={
-                  {
-                    locations: [
-                      {name: 'New York', code: 'NY'},
-                      {name: 'Rome', code: 'RM'},
-                      {name: 'London', code: 'LDN'},
-                      {name: 'Istanbul', code: 'IST'},
-                      {name: 'Paris', code: 'PRS'},
-                    ],
-                    role: 'employer',
-                  }
-                }
-        />
-  )
-}
+  useEffect(() => {
+    commonService.getLocations().then(res => {
+      setLocations(res.data);
+    }).catch(err => {
+      console.log('Can not get locations');
+    });
+  }, []);
+
+  return (<>
+        {success ?
+            <div>
+              <h3 className='successMessage header'>
+                You are successfully registered! <br/>
+              </h3>
+              <h4 className='successMessage'>
+                Please, check your email and
+                confirm registration</h4>
+              <div className="buttonContainer">
+                <Button label='Close' onClick={destroyModal}/>
+              </div>
+            </div> :
+            <Formik onSubmit={handleSubmit}
+                    component={SignUpFormView}
+                    validationSchema={employerSignUpSchema}
+                    initialValues={{
+                      locations: locations.map(
+                          el => ({
+                            name: `${el.city}/${el.country}`,
+                            code: el.id,
+                          })),
+                      role: 'employer',
+                    }}
+                    enableReinitialize
+            />}
+      </>
+  );
+};
 
 export default SignUpEmployerFormContainer;

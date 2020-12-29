@@ -14,14 +14,17 @@ const LoginForm = (props) => {
               component={FKAuthTextInput}
               disabled={isSubmitting}
               name="email"
-              placeholder='Email'
+              placeholder='myemail@example.com'
+              label='Email'
               containerClassName='field'
+              focused
           />
           <Field
               component={FKAuthTextInput}
               disabled={isSubmitting}
               name="password"
-              placeholder='Password'
+              placeholder=''
+              label='Password'
               containerClassName='field'
               secure
           />
@@ -31,7 +34,7 @@ const LoginForm = (props) => {
               component={FKCheckbox}
               disabled={isSubmitting}
               name='remember'
-              label='Remember me'
+              label='Keep me signed in'
           />
           <a className='link' href='#'>Forgot password?</a>
         </div>

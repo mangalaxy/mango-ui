@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import '../Auth.scss';
 import rocket from '../../../assets/icons/rocket.svg';
 import SighUpTalentFormContainer from './SignUpTalentFormContainer';
 
 const SignUpTalentFrame = ({handleSignIn}) => {
+  const [success, setSuccess] = useState(false);
   return (
       <div className="authContainer">
         <div className='infoContainer talentSignUp'>
@@ -20,8 +21,10 @@ const SignUpTalentFrame = ({handleSignIn}) => {
         </div>
         <div className='formContainer'>
           <div className="content">
-            <SighUpTalentFormContainer />
-            <p>Have an account? <span onClick={handleSignIn}>Sign in</span></p>
+            <SighUpTalentFormContainer success={success}
+                                       setSuccess={setSuccess}/>
+            {!success &&
+            <p>Have an account? <span onClick={handleSignIn}>Sign in</span></p>}
           </div>
         </div>
       </div>
