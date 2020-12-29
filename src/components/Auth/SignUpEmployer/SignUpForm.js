@@ -12,16 +12,18 @@ const SignUpForm = ({handleSubmit, isSubmitting, isValid, initialValues}) => (
             component={FKAuthTextInput}
             disabled={isSubmitting}
             name="fullName"
-            placeholder='Full name'
+            label='Full name'
             containerClassName='field'
+            focused
         />
         <Field
             component={FKAuthTextInput}
             disabled={isSubmitting}
             name="email"
-            placeholder={initialValues.role === 'employer' ?
-                'CompanyLayout e-mail' :
+            label={initialValues.role === 'employer' ?
+                'Work Email' :
                 'E-mail'}
+            placeholder='myemail@example.com'
             containerClassName='field'
         />
         {initialValues.role === 'employer' &&
@@ -30,21 +32,22 @@ const SignUpForm = ({handleSubmit, isSubmitting, isValid, initialValues}) => (
               component={FKAuthTextInput}
               disabled={isSubmitting}
               name="phone"
-              placeholder='Phone number'
+              label='Phone number'
+              placeholder='+17085550142'
               containerClassName='field'
           />
           <Field
               component={FKAuthTextInput}
               disabled={isSubmitting}
-              name="company"
-              placeholder='CompanyLayout name'
+              name="companyName"
+              label='CompanyLayout name'
               containerClassName='field'
           />
           <Field
               component={FKAuthTextInput}
               disabled={isSubmitting}
               name="jobTitle"
-              placeholder='Job title'
+              label='Job title'
               containerClassName='field'
           />
         </>
@@ -61,7 +64,7 @@ const SignUpForm = ({handleSubmit, isSubmitting, isValid, initialValues}) => (
             component={FKAuthTextInput}
             disabled={isSubmitting}
             name="password"
-            placeholder='Password'
+            label='Password'
             containerClassName='field'
             secure
         />
@@ -69,7 +72,7 @@ const SignUpForm = ({handleSubmit, isSubmitting, isValid, initialValues}) => (
             component={FKAuthTextInput}
             disabled={isSubmitting}
             name="passwordConfirmation"
-            placeholder='Password confirmation'
+            label='Password confirmation'
             containerClassName='field'
             secure
         />

@@ -57,11 +57,9 @@ const getStoredUser = () => {
   return null;
 };
 
-const signUpTalent = (data) => {
-  return axios.post(API.AUTH.registerTalent, data);
-};
+const signUpTalent = data => (axios.post(API.AUTH.registerTalent, data));
 
-const signUpEmployer = data => (axios.post(API.AUTH.registerEmployer));
+const signUpEmployer = data => (axios.post(API.AUTH.registerEmployer, data));
 
 export default ({
   login,

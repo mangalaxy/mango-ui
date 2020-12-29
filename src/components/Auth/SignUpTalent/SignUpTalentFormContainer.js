@@ -7,9 +7,8 @@ import loginService from '../../../services/loginService';
 import {destroyModal} from '../../../services/renderModal';
 import {Button} from 'primereact/button';
 
-const SignUpTalentFormContainer = () => {
+const SignUpTalentFormContainer = ({success, setSuccess}) => {
   const [locations, setLocations] = useState([]);
-  const [success, setSuccess] = useState(false);
 
   useEffect(() => {
     commonService.getLocations().then(res => {
@@ -21,10 +20,16 @@ const SignUpTalentFormContainer = () => {
 
   return (<>
         {success ?
-            <div><span>
-              Please, check your email and confirm registration
-            </span>
-              <Button label='Close' onClick={destroyModal}/>
+            <div>
+              <h3 className='successMessage header'>
+                You are successfully registered! <br/>
+              </h3>
+              <h4 className='successMessage'>
+                Please, check your email and
+                confirm registration</h4>
+              <div className="buttonContainer">
+                <Button label='Close' onClick={destroyModal}/>
+              </div>
             </div> :
             <Formik
                 onSubmit={(
@@ -66,6 +71,7 @@ const SignUpTalentFormContainer = () => {
             />}
       </>
   );
-};
+}
+;
 
 export default SignUpTalentFormContainer;

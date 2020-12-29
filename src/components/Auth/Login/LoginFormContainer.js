@@ -9,8 +9,7 @@ import {loginFormSchema} from '../../../validationSchema/authSchema';
 const LoginFormContainer = ({history, setRole}) => (
     <Formik onSubmit={(
         {email, password, rememberMe},
-        {resetForm, setStatus, setSubmitting}) => {
-      setStatus({});
+        {setSubmitting, setFieldError}) => {
       try {
         let data = {};
         data.email = email;
@@ -32,14 +31,15 @@ const LoginFormContainer = ({history, setRole}) => (
               history.replace(routes.TALENT.HOME);
             }
           } else {
-            //TODO: set error
+            setSubmitting(false);
+            setFieldError('password', 'Incorrect email or password')
           }
-        }).catch(e => {
-          console.log(e);
-        });
-        resetForm();
+        }, err=>{
+          console.log(err);
+          setSubmitting(false);
+          setFieldError('password', 'Incorrect email or password')
+        })
       } catch (err) {
-        setStatus({failed: true});
         setSubmitting(false);
       }
     }

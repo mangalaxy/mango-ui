@@ -14,14 +14,17 @@ const LoginForm = (props) => {
               component={FKAuthTextInput}
               disabled={isSubmitting}
               name="email"
-              placeholder='Email'
+              placeholder='myemail@example.com'
+              label='Email'
               containerClassName='field'
+              focused
           />
           <Field
               component={FKAuthTextInput}
               disabled={isSubmitting}
               name="password"
-              placeholder='Password'
+              placeholder=''
+              label='Password'
               containerClassName='field'
               secure
           />
