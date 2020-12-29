@@ -36,7 +36,7 @@ const AppRouter = () => (
       <Route exact path={routes.COMMON.TERMS} component={TermsOfUse}/>
       <Route exact path={routes.COMMON.SUPPORT} component={Support}/>
       <Route exact path={routes.COMMON.BLOG} component={Blog}/>
-      <Route exact path={routes.COMMON.POST} component={Post}/>
+      <Route exact path={routes.COMMON.POST + '/:id'} component={Post}/>
       <Route exact path={routes.COMMON.LOGIN}
              component={() => <LoginFrame handleSignUpTalent={openSignUpTalent}
                                           handleSingUpEmployer={openSignUpEmployer}/>

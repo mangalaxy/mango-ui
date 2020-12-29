@@ -4,3 +4,5 @@ export const DELETE_TALENT = 'DELETE_TALENT';
 export const DELETE_JOB = 'DELETE_JOB';
 export const LOAD_POSTS = 'LOAD_POSTS';
 export const POSTS_LOADING = 'POSTS_LOADING';
+export const POST_BY_ID_LOADING = 'POST_BY_ID_LOADING';
+export const LOAD_POST_BY_ID = 'LOAD_POST_BY_ID';
