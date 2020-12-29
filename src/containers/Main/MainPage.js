@@ -13,7 +13,7 @@ const MainPage = ({setRole}) => {
   return (
         <div className='main'>
           <MainMenu
-                path={location?.pathname}
+                path={location && location.pathname}
                 openLoginForm={()=>openLoginForm(history, setRole)}
                 openSignUpTalent={openSignUpTalent}
                 openSignUpEmployer={openSignUpEmployer}
