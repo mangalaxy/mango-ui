@@ -6,7 +6,7 @@ import {ROLES} from '../../../constants/roles';
 import routes from '../../../constants/routes.json';
 import {loginFormSchema} from '../../../validationSchema/authSchema';
 
-const LoginFormContainer = ({history, setRole}) => (
+const LoginFormContainer = ({history}) => (
     <Formik onSubmit={(
         {email, password, rememberMe},
         {setSubmitting, setFieldError}) => {
@@ -24,10 +24,10 @@ const LoginFormContainer = ({history, setRole}) => (
             } else localStorage.removeItem('usr');
             let role = loginService.getRole(token);
             if (role === ROLES.EMPLOYER) {
-              setRole(ROLES.EMPLOYER);
+              // setRole(ROLES.EMPLOYER);TODO: set role in Redux
               history.replace(routes.EMPLOYER.HOME);
             } else if (role === ROLES.TALENT) {
-              setRole(ROLES.TALENT);
+              // setRole(ROLES.TALENT);TODO: set role in Redux
               history.replace(routes.TALENT.HOME);
             }
           } else {

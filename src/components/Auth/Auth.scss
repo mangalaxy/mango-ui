@@ -1,5 +1,21 @@
 @import '../../styles/_variables.scss';
-
+.authPage{
+ min-height: 100vh;
+  background: url("../../assets/images/map-background.jpg") no-repeat center;
+  background-size: cover;
+  backdrop-filter: brightness(.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 100px;
+  padding-bottom: 30px;
+  @media (max-width: 800px) {
+    padding: 10px;
+  }
+  @media (max-width: 480px) {
+    padding: 0;
+  }
+}
 .authContainer {
   display: flex;
   flex-direction: row;

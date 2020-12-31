@@ -3,6 +3,8 @@ import '../Auth.scss';
 import LoginFormContainer from './LoginFormContainer';
 import ImageBanner from '../ImageBanner';
 import rocket from '../../../assets/icons/rocket.svg';
+import {Link} from 'react-router-dom';
+import routes from '../../../constants/routes.json';
 
 const bannerProps = {
   headline: 'Sign in',
@@ -14,23 +16,22 @@ const bannerProps = {
 
 const LoginFrame = ({
                       handleForgotPassword,
-                      handleSignUpTalent,
-                      handleSingUpEmployer,
-                      history,setRole
+                      history
                     }) => {
   return (
-      <div className="authContainer">
-        <ImageBanner {...bannerProps} />
-        <div className='formContainer'>
-          <div className="content">
-            <LoginFormContainer
-                handleForgotPassword={handleForgotPassword}
-                history={history}
-                setRole={setRole}
-            />
-            <p>Don’t have an account? Sign up <span
-                onClick={handleSignUpTalent}>as talent</span> or <span
-                onClick={handleSingUpEmployer}>as employer</span></p>
+      <div className="authPage">
+        <div className="authContainer">
+          <ImageBanner {...bannerProps} />
+          <div className='formContainer'>
+            <div className="content">
+              <LoginFormContainer
+                  handleForgotPassword={handleForgotPassword}
+                  history={history}
+              />
+              <p>Don’t have an account? Sign up <Link
+                  to={routes.COMMON.SIGNUP_TALENT}>as talent</Link> or <Link
+                  to={routes.COMMON.SIGNUP_EMPLOYER}>as employer</Link></p>
+            </div>
           </div>
         </div>
       </div>

@@ -6,21 +6,21 @@ import SvgIcon from '../../../components/SvgIcon/SvgIcon';
 import {close} from '../../../assets/icons';
 import {Link, NavLink} from 'react-router-dom';
 
-const MobileMenu = ({openLoginForm, openSignUpTalent, openSignUpEmployer, closeMobileMenu}) => {
+const MobileMenu = ({closeMobileMenu}) => {
   const [openSubmenu, toggleMenuOpen] = useState(false);
 
   const logIn = () => {
-    openLoginForm();
+    document.location.href = routes.COMMON.LOGIN;
     closeMobileMenu();
   };
 
   const signUpTalent = () => {
-    openSignUpTalent();
+    document.location.href = routes.COMMON.SIGNUP_TALENT;
     closeMobileMenu();
   };
 
   const signUpEmployer = () => {
-    openSignUpEmployer();
+    document.location.href = routes.COMMON.SIGNUP_EMPLOYER;
     closeMobileMenu();
   };
 
