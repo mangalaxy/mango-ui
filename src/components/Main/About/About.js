@@ -120,7 +120,7 @@ const About = () => {
                 <div className="iconContainer">
                   <img src={globe} alt=""/>
                 </div>
-                <h3>25 mln</h3>
+                <h3>25mln</h3>
                 <span>Professional specialists</span>
               </div>
 
