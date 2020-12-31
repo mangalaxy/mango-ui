@@ -43,7 +43,6 @@ p {
   }
 
   @media (max-width: 800px) {
-    text-transform: none;
     font-size: 28px;
     text-align: left;
 
@@ -80,6 +79,7 @@ p {
     margin-bottom: 1em;
     font-weight: 600;
     @media (max-width: 800px) {
+      text-align: left;
       font-size: 24px;
     }
   }
