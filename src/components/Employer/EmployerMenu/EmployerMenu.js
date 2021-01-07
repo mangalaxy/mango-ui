@@ -4,11 +4,13 @@ import routes from '../../../constants/routes.json';
 import './EmloyerMenu.scss';
 import loginService from '../../../services/loginService'
 import {useHistory} from 'react-router';
+import {logout} from '../../../actions/userActions';
+import {connect} from 'react-redux';
 
-const EmployerMenu = ({ user,setRole, theme = null }) => {
+const EmployerMenu = ({ user,logoutUser, theme = null }) => {
   const history = useHistory();
   const goMain=()=>{
-    setRole(null);
+    logoutUser();
     history.replace(routes.COMMON.ROOT)
   }
 
@@ -64,4 +66,12 @@ const EmployerMenu = ({ user,setRole, theme = null }) => {
   )
 }
 
-export default EmployerMenu;
+const mapStateToProps = state => ({
+  user: state.user.user,
+});
+
+const mapDispatchToProps = dispatch => ({
+  logoutUser: ()=>dispatch(logout()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(EmployerMenu);

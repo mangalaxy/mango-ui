@@ -20,7 +20,6 @@ import SignUpTalentFrame
   from '../../components/Auth/SignUpTalent/SignUpTalentFrame';
 import SignUpEmployerFrame
   from '../../components/Auth/SignUpEmployer/SignUpEmployerFrame';
-import {openLoginForm, openSignUpEmployer, openSignUpTalent} from './handlers';
 
 const AppRouter = () => (
     <Switch>
@@ -37,18 +36,12 @@ const AppRouter = () => (
       <Route exact path={routes.COMMON.SUPPORT} component={Support}/>
       <Route exact path={routes.COMMON.BLOG} component={Blog}/>
       <Route exact path={routes.COMMON.POST + '/:id'} component={Post}/>
-      <Route exact path={routes.COMMON.LOGIN}
-             component={() => <LoginFrame handleSignUpTalent={openSignUpTalent}
-                                          handleSingUpEmployer={openSignUpEmployer}/>
-             }
+      <Route exact path={routes.COMMON.LOGIN} component={LoginFrame}
       />
       <Route exact path={routes.COMMON.SIGNUP_EMPLOYER}
-             component={() => <SignUpEmployerFrame
-                 handleSignIn={openLoginForm}/>}
-      />
+             component={SignUpEmployerFrame}/>
       <Route exact path={routes.COMMON.SIGNUP_TALENT}
-             component={() => <SignUpTalentFrame handleSignIn={openLoginForm}/>}
-      />
+             component={SignUpTalentFrame}/>
       <Route path={routes.COMMON.ROOT} component={Home}/>
     </Switch>
 );

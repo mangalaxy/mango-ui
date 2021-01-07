@@ -5,8 +5,10 @@ import loginService from '../../../services/loginService';
 import {ROLES} from '../../../constants/roles';
 import routes from '../../../constants/routes.json';
 import {loginFormSchema} from '../../../validationSchema/authSchema';
+import {setUserRole} from '../../../actions/userActions';
+import {connect} from 'react-redux';
 
-const LoginFormContainer = ({history, setRole}) => (
+const LoginFormContainer = ({setRole, history}) => (
     <Formik onSubmit={(
         {email, password, rememberMe},
         {setSubmitting, setFieldError}) => {
@@ -32,13 +34,13 @@ const LoginFormContainer = ({history, setRole}) => (
             }
           } else {
             setSubmitting(false);
-            setFieldError('password', 'Incorrect email or password')
+            setFieldError('password', 'Incorrect email or password');
           }
-        }, err=>{
+        }, err => {
           console.log(err);
           setSubmitting(false);
-          setFieldError('password', 'Incorrect email or password')
-        })
+          setFieldError('password', 'Incorrect email or password');
+        });
       } catch (err) {
         setSubmitting(false);
       }
@@ -50,4 +52,8 @@ const LoginFormContainer = ({history, setRole}) => (
     />
 );
 
-export default LoginFormContainer;
+const mapDispatchToProps = dispatch => ({
+  setRole: role => dispatch(setUserRole(role)),
+});
+
+export default connect(null, mapDispatchToProps)(LoginFormContainer);

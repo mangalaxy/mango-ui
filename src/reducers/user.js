@@ -1,11 +1,23 @@
-const initialState ={
+import {LOGOUT, SET_USER_ROLE} from '../actions/action_types';
+
+const initialState = {
+  role: null,
   user: {
-    fullName: 'Mike Will'
-  }
+    fullName: 'User',
+  },
 };
 
 const user = (state = initialState, action) => {
-  return state;
-}
+  switch (action.type) {
+    case SET_USER_ROLE: {
+      return {...state, role: action.payload};
+    }
+    case LOGOUT:{
+      return initialState
+    }
+    default:
+      return state;
+  }
+};
 
 export default user;
