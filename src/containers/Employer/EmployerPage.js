@@ -5,7 +5,6 @@ import EmployerMenu from '../../components/Employer/EmployerMenu/EmployerMenu';
 import WelcomePage from '../../components/Employer/EmployerWelcome/WelcomePage';
 import EmployersPositions
   from '../../components/Employer/EmployersPositions/EmployersPositions';
-import {connect} from 'react-redux';
 import BookmarkedTalents
   from '../../components/Employer/BookmarkedTalents/BookmarkedTalents';
 import InterviewDashboard
@@ -16,7 +15,7 @@ import CompanyEditPage from '../../components/Employer/Company/CompanyEditPage';
 import './EmployerPage.scss';
 import {useLocation} from 'react-router';
 
-const EmployerPage = ({user, setRole}) => {
+const EmployerPage = () => {
   const location = useLocation();
   const getMenuTheme = () => {
     const path = location.pathname;
@@ -28,7 +27,7 @@ const EmployerPage = ({user, setRole}) => {
 
   return (
       <div className="employer-bg">
-        <EmployerMenu user={user} theme={getMenuTheme()} setRole={setRole}/>
+        <EmployerMenu theme={getMenuTheme()}/>
         <div id='dialog-container'/>
         <Switch>
           <Route exact path={routes.EMPLOYER.POSITIONS}
@@ -48,10 +47,4 @@ const EmployerPage = ({user, setRole}) => {
   );
 };
 
-const mapStateToProps = state => ({
-  user: state.user.user,
-});
-
-const mapDispatchToProps = dispatch => ({});
-
-export default connect(mapStateToProps, mapDispatchToProps)(EmployerPage);
+export default EmployerPage;

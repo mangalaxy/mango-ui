@@ -5,8 +5,10 @@ import loginService from '../../../services/loginService';
 import {ROLES} from '../../../constants/roles';
 import routes from '../../../constants/routes.json';
 import {loginFormSchema} from '../../../validationSchema/authSchema';
+import {setUserRole} from '../../../actions/userActions';
+import {connect} from 'react-redux';
 
-const LoginFormContainer = ({history}) => (
+const LoginFormContainer = ({setRole, history}) => (
     <Formik onSubmit={(
         {email, password, rememberMe},
         {setSubmitting, setFieldError}) => {
@@ -24,21 +26,21 @@ const LoginFormContainer = ({history}) => (
             } else localStorage.removeItem('usr');
             let role = loginService.getRole(token);
             if (role === ROLES.EMPLOYER) {
-              // setRole(ROLES.EMPLOYER);TODO: set role in Redux
+              setRole(ROLES.EMPLOYER);
               history.replace(routes.EMPLOYER.HOME);
             } else if (role === ROLES.TALENT) {
-              // setRole(ROLES.TALENT);TODO: set role in Redux
+              setRole(ROLES.TALENT);
               history.replace(routes.TALENT.HOME);
             }
           } else {
             setSubmitting(false);
-            setFieldError('password', 'Incorrect email or password')
+            setFieldError('password', 'Incorrect email or password');
           }
-        }, err=>{
+        }, err => {
           console.log(err);
           setSubmitting(false);
-          setFieldError('password', 'Incorrect email or password')
-        })
+          setFieldError('password', 'Incorrect email or password');
+        });
       } catch (err) {
         setSubmitting(false);
       }
@@ -50,4 +52,8 @@ const LoginFormContainer = ({history}) => (
     />
 );
 
-export default LoginFormContainer;
+const mapDispatchToProps = dispatch => ({
+  setRole: role => dispatch(setUserRole(role)),
+});
+
+export default connect(null, mapDispatchToProps)(LoginFormContainer);

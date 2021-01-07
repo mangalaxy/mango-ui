@@ -2,15 +2,17 @@ import React from 'react';
 import {Link, NavLink} from 'react-router-dom';
 import routes from '../../../constants/routes.json';
 import './TalentMenu.scss';
-import loginService from '../../../services/loginService'
+import loginService from '../../../services/loginService';
 import {useHistory} from 'react-router';
+import {logout} from '../../../actions/userActions';
+import {connect} from 'react-redux';
 
-const TalentMenu = ({ setRole, theme = null }) => {
+const TalentMenu = ({logoutUser, theme = null}) => {
   const history = useHistory();
-  const goMain=()=>{
-    setRole(null);
-    history.replace(routes.COMMON.ROOT)
-  }
+  const goMain = () => {
+    logoutUser();
+    history.replace(routes.COMMON.ROOT);
+  };
 
   return (
       <div className={`talentMenuContainer ${theme}`}>
@@ -45,11 +47,16 @@ const TalentMenu = ({ setRole, theme = null }) => {
         </ul>
         <div className='menuItemsContainer'>
           <div>
-            <span className='menuItem authBlock' onClick={()=>loginService.logout(goMain)}>Sign out</span>
+            <span className='menuItem authBlock'
+                  onClick={() => loginService.logout(goMain)}>Sign out</span>
           </div>
         </div>
       </div>
-  )
-}
+  );
+};
 
-export default TalentMenu;
+const mapDispatchToProps = dispatch => ({
+  logoutUser: ()=>dispatch(logout()),
+});
+
+export default connect(null, mapDispatchToProps)(TalentMenu);

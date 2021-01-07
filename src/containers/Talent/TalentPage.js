@@ -6,10 +6,10 @@ import CreateProfile from "../../components/Profile/CreateProfile/CreateProfile"
 import TalentProfile from "../TalentProfile/TalentProfile";
 import ProfileInterview from "../../components/ProfileInterview/ProfileInterview";
 
-const TalentPage = ({setRole}) => {
+const TalentPage = () => {
   return (
         <div className="employer-bg">
-          <TalentMenu setRole={setRole}/>
+          <TalentMenu/>
           <div id='dialog-container'/>
           <Switch>
             <Route exact path={routes.TALENT.BUILD_PROFILE} component={CreateProfile}/>
