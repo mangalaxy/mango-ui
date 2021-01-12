@@ -1,0 +1,32 @@
+@import '../../../../styles/_variables.scss';
+
+.profileBuilderFieldsContainer {
+  height: 100%;
+
+  .profileBuilderTitle {
+    font-family: $font-family-sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 34px;
+    text-transform: uppercase;
+    color: rgba(0, 132, 137, 0.9);
+  }
+
+  .requiredAttention {
+    font-family: $font-family-sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 17px;
+    color: #828282;
+  }
+}
+
+.profileBuilderButtonsContainer {
+  display: flex;
+  align-items: center;
+  padding: 30px 0 0 0;
+  justify-content: flex-end;
+}
+
