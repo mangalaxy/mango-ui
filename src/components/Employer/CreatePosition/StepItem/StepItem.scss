@@ -1,0 +1,36 @@
+@import '../../../../styles/_variables.scss';
+
+.timeLineItem {
+  .item {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid white;
+    opacity: .4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    color: white;
+    font-size: 20px;
+    line-height: 20px;
+
+    span {
+      margin-bottom: 1px;
+    }
+
+    i {
+      font-size: 16px;
+    }
+
+    &.current {
+      opacity: 1;
+    }
+
+    &.complete {
+      opacity: 1;
+      background-color: $COLOR_LINK;
+      border: 2px solid $COLOR_LINK;
+    }
+  }
+}

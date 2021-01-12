@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import EmployerJobList from "./EmployerJobList";
-
+import EmployerJobList from './EmployerJobList';
 import './EmployersPositions.scss';
+import routes from '../../../constants/routes.json';
 
 class EmployersPositions extends Component {
   render() {
     return (
       <div className="employersPositions">
-        <Link to="/create-new-job" className="employersPositions-btn">
+        <Link to={routes.EMPLOYER.CREATE_POSITION} className="employersPositions-btn">
           + Create new position
         </Link>
         <h3 className="employersPositions-title">

@@ -62,7 +62,6 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://mangostart-env.eba-qjsxjkb7.us-east-2.elasticbeanstalk.com",
   "plugins": [
     "@babel/plugin-proposal-optional-chaining"
   ]

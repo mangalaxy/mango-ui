@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {Route, Switch} from 'react-router-dom';
 import routes from '../../constants/routes.json';
 import EmployerMenu from '../../components/Employer/EmployerMenu/EmployerMenu';
@@ -11,23 +11,33 @@ import InterviewDashboard
   from '../../components/Employer/InterviewDashboard/InterviewDashboard';
 import CompanyPage from '../../components/Employer/Company/CompanyPage';
 import CompanyEditPage from '../../components/Employer/Company/CompanyEditPage';
-
 import './EmployerPage.scss';
 import {useLocation} from 'react-router';
+import employerService from '../../services/employerService';
+import CreatePosition
+  from '../../components/Employer/CreatePosition/CreatePosition';
 
 const EmployerPage = () => {
+  const [user, setUser] = useState();
+  const [lightTheme, setLightTheme] = useState(false)
   const location = useLocation();
-  const getMenuTheme = () => {
-    const path = location.pathname;
-    if (path.startsWith(routes.EMPLOYER.COMPANY)) {
-      return 'white';
-    }
-    return 'gray';
-  };
+
+  useEffect(()=>{
+    setLightTheme(location.pathname.startsWith(routes.EMPLOYER.COMPANY))
+  }, [location])
+
+  useEffect(() => {
+    employerService.getMyInfo().then(res => {
+      setUser(res.data)
+    }).catch(err => {
+      console.log(err);
+    });
+  }, []);
+
 
   return (
-      <div className="employer-bg">
-        <EmployerMenu theme={getMenuTheme()}/>
+      <div className={lightTheme?"employer-bg white":"employer-bg"}>
+        <EmployerMenu user={user}/>
         <div id='dialog-container'/>
         <Switch>
           <Route exact path={routes.EMPLOYER.POSITIONS}
@@ -39,8 +49,9 @@ const EmployerPage = () => {
                  component={BookmarkedTalents}/>
           <Route exact path={routes.EMPLOYER.INTERVIEWS}
                  component={InterviewDashboard}/>
+          <Route path={routes.EMPLOYER.CREATE_POSITION} component={CreatePosition}/>
           <Route path={routes.EMPLOYER.HOME}
-                 component={WelcomePage}
+                 component={()=><WelcomePage name={user?.fullName}/>}
           />
         </Switch>
       </div>

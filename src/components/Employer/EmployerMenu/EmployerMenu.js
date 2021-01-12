@@ -7,7 +7,7 @@ import {useHistory} from 'react-router';
 import {logout} from '../../../actions/userActions';
 import {connect} from 'react-redux';
 
-const EmployerMenu = ({ user,logoutUser, theme = null }) => {
+const EmployerMenu = ({user,logoutUser}) => {
   const history = useHistory();
   const goMain=()=>{
     logoutUser();
@@ -15,7 +15,7 @@ const EmployerMenu = ({ user,logoutUser, theme = null }) => {
   }
 
   return (
-      <div className={`employerMenuContainer ${theme}`}>
+      <div className='employerMenuContainer'>
         <div>
           <Link to={routes.EMPLOYER.HOME} className='logo'>
             mangostart
@@ -55,7 +55,7 @@ const EmployerMenu = ({ user,logoutUser, theme = null }) => {
         <div className='menuItemsContainer'>
           <div>
             <span className='menuItem authBlock left'>
-              {user && user.fullName ? user.fullName : 'USER'}
+              {user && user.fullName}
             </span>
           </div>
           <div>
@@ -66,12 +66,8 @@ const EmployerMenu = ({ user,logoutUser, theme = null }) => {
   )
 }
 
-const mapStateToProps = state => ({
-  user: state.user.user,
-});
-
 const mapDispatchToProps = dispatch => ({
   logoutUser: ()=>dispatch(logout()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(EmployerMenu);
+export default connect(null, mapDispatchToProps)(EmployerMenu);

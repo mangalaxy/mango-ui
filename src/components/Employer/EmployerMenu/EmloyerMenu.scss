@@ -129,9 +129,11 @@
 
     &.left {
       // border-right: solid 1px $COLOR_MENU_LIGHT;
-      padding: 5px 29px 5px 9px;
+      padding: 5px 10px 5px 9px;
       border-right: solid 1px $COLOR_MENU_DARK;
       text-transform: none;
+      min-width: 180px;
+      text-align: right;
     }
   }
 }
