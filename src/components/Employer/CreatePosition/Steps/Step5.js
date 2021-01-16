@@ -1,8 +1,10 @@
 import React from 'react';
 import './Steps.scss';
-import {Field} from 'formik'
+import {Field, useFormikContext} from 'formik';
 
 const Step5 = ({goNext, goPrev}) => {
+  const {values, errors, touched}= useFormikContext()
+
   return (
       <>
         <div className='profileBuilderFieldsContainer'>
@@ -13,8 +15,14 @@ const Step5 = ({goNext, goPrev}) => {
           <Field type='text' name='positionName2'/>
         </div>
         <div className='profileBuilderButtonsContainer'>
-          <button onClick={goPrev} type='button' className='accent-btn__transparent'>Prev</button>
-          <button onClick={goNext} type='button' className='accent-btn'>Next</button>
+          <button  onClick={goPrev} type='button' className='accent-btn__transparent'>
+            Previous
+            <i className='pi pi-chevron-left'/>
+          </button>
+          <button disabled={!(values.jobRoleTitle)} onClick={goNext} type='button' className='accent-btn'>
+            Next
+            <i className='pi pi-chevron-right'/>
+          </button>
         </div>
       </>
   );

@@ -10,6 +10,10 @@ import Step6 from './Steps/Step6';
 import Step5 from './Steps/Step5';
 import Step4 from './Steps/Step4';
 import Step3 from './Steps/Step3';
+import {
+  createPositionInitialValues,
+  createPositionSchema,
+} from '../../../validationSchema/createPositionSchema';
 
 const CreatePosition = () => {
   const [steps, setSteps] = useState([
@@ -21,7 +25,7 @@ const CreatePosition = () => {
     {complete: false, current: false, label: '6'},
   ]);
 
-  const [activeStep, setActiveStep] = useState(0);
+  const [activeStep, setActiveStep] = useState(1);
 
   useEffect(() => {
     const newSteps = steps.map((step, index) => ({
@@ -32,12 +36,8 @@ const CreatePosition = () => {
     setSteps(newSteps);
   }, [activeStep]);
 
-  const goNext = () => {
-    setActiveStep(activeStep + 1);
-  };
-  const goPrev = () => {
-    setActiveStep(activeStep - 1);
-  };
+  const goNext = () => setActiveStep(activeStep + 1);
+  const goPrev = () => setActiveStep(activeStep - 1);
 
   return (
       <div className='cretePositionPage'>
@@ -46,7 +46,8 @@ const CreatePosition = () => {
             <Timeline value={steps} marker={StepItem}/>
           </div>}
 
-          <Formik initialValues={{positionName: '', email: ''}}
+          <Formik initialValues={createPositionInitialValues}
+                  validationSchema={createPositionSchema}
                   onSubmit={async values => {
                     await new Promise(resolve => setTimeout(resolve, 500));
                     alert(JSON.stringify(values, null, 2));
