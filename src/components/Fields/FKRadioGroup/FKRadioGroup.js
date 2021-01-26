@@ -17,12 +17,12 @@ const FKRadioGroup = ({
       {options.map((item, index) =>
           <div className="radiobutton" key={index}>
             <RadioButton
-                inputId={item}
+                inputId={name+item}
                 onChange={e => setFieldValue(name, e.value)}
                 value={item}
                 checked={value===item}
             />
-            <label htmlFor={item}>{item}</label>
+            <label htmlFor={name+item}>{item}</label>
           </div>)
       }
 

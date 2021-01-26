@@ -133,6 +133,9 @@
     border-color: #BDBDBD;
     border-radius: 7px;
   }
+.p-inputtext{
+  padding: 8px;
+}
 
   &:active, &:focus {
     border: none !important;
@@ -166,19 +169,25 @@
     }
   }
 
-  .p-multiselect-header {
-    display: none;
+  &.noHeader {
+    .p-multiselect-header {
+      height: 0;
+      padding: 0 !important;
+      overflow: hidden;
+    }
   }
 }
 
-.fieldRadioGroup{
+.fieldRadioGroup {
   margin-top: 1em;
-  .radiobutton{
+
+  .radiobutton {
     display: flex;
     align-items: center;
     font-size: 15px;
     margin-bottom: 1em;
-    label{
+
+    label {
       margin-left: 1em;
       cursor: pointer;
     }
@@ -220,10 +229,11 @@
 
   .p-inputtext {
     width: 100% !important;
-    font-size: 16px;
+    font-size: 15px;
     font-family: $FONT_COMMON !important;
     border-color: #BDBDBD;
     border-radius: 7px;
+    padding: 9px;
 
     &:focus {
       box-shadow: none;

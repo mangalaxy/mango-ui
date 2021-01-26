@@ -10,12 +10,15 @@
     background-color: white;
     display: flex;
     border-radius: 15px;
+    width: 900px;
     min-width: 60vw;
     max-width: 80vw;
 
     .progressBarContainer {
       padding: 35px 18px;
       background: linear-gradient(95deg, rgba(82, 200, 205, 0.8) 8.08%, #008489 77.55%), #008489;
+      border-top-left-radius: 15px;
+      border-bottom-left-radius: 15px;
 
       .p-timeline-event {
         min-height: 80px;

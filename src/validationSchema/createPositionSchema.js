@@ -9,8 +9,9 @@ export const createPositionSchema = Yup.object().shape({
       required('Required field'),
   jobRoleTitle: Yup.string().
       required('Required field'),
-  location: Yup.string().
+  city: Yup.string().
       required('Required field'),
+
 });
 
 export const createPositionInitialValues = {
@@ -19,6 +20,8 @@ export const createPositionInitialValues = {
   'jobRoleTitle': '',
   'jobType': '',
   'remote': false,
+  'country': '',
+  'city': '',
   'relocation': false,
   'visaSponsorship': false,
   'experienceRequired': '',

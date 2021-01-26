@@ -14,6 +14,7 @@ import {
   createPositionInitialValues,
   createPositionSchema,
 } from '../../../validationSchema/createPositionSchema';
+import commonService from '../../../services/commonService';
 
 const CreatePosition = () => {
   const [steps, setSteps] = useState([
@@ -24,8 +25,28 @@ const CreatePosition = () => {
     {complete: false, current: false, label: '5'},
     {complete: false, current: false, label: '6'},
   ]);
+  const [countries, setCountries] = useState([]);
+  const [cities, setCities] = useState([]);
+  const [locations, setLocations] = useState([]);
 
-  const [activeStep, setActiveStep] = useState(1);
+  const [activeStep, setActiveStep] = useState(2);
+
+  useEffect(() => {
+    commonService.getLocations().then(res => {
+      setLocations(res.data);
+      setCities(res.data.map(item => ({label: item.city, value: item.id, country: item.country})));
+      let countriesList = [];
+      res.data.forEach(item => {
+        if (!countriesList.includes(item.country)) {
+          countriesList.push(item.country);
+        }
+      });
+      setCountries(
+          countriesList.map((item) => ({label: item, value: item})));
+    }).catch(err => {
+      console.log('Can not get locations');
+    });
+  }, []);
 
   useEffect(() => {
     const newSteps = steps.map((step, index) => ({
@@ -42,7 +63,7 @@ const CreatePosition = () => {
   return (
       <div className='cretePositionPage'>
         <div className='pageContainer'>
-          {activeStep<6 && <div className="progressBarContainer">
+          {activeStep < 6 && <div className="progressBarContainer">
             <Timeline value={steps} marker={StepItem}/>
           </div>}
 
@@ -56,11 +77,14 @@ const CreatePosition = () => {
               <div className="contentContainer">
                 {activeStep === 0 && <Step1 goNext={goNext} goPrev={goPrev}/>}
                 {activeStep === 1 && <Step2 goNext={goNext} goPrev={goPrev}/>}
-                {activeStep === 2 && <Step3 goNext={goNext} goPrev={goPrev}/>}
+                {activeStep === 2 && <Step3 goNext={goNext} goPrev={goPrev}
+                                            cities={cities}
+                                            countries={countries}/>}
                 {activeStep === 3 && <Step4 goNext={goNext} goPrev={goPrev}/>}
                 {activeStep === 4 && <Step5 goNext={goNext} goPrev={goPrev}/>}
                 {activeStep === 5 && <Step6 goNext={goNext} goPrev={goPrev}/>}
-                {activeStep === 6 && <Confirmation goNext={goNext} goPrev={goPrev}/>}
+                {activeStep === 6 &&
+                <Confirmation goNext={goNext} goPrev={goPrev}/>}
               </div>
             </Form>
           </Formik>
