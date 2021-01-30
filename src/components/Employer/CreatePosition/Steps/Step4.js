@@ -1,7 +1,7 @@
 import React from 'react';
 import './Steps.scss';
 import {Field, useFormikContext} from 'formik';
-import RequiredNotice from '../RequiredNitice';
+import RequiredNotice from '../RequiredNotice';
 import FKMultiselect from '../../../Fields/FKDropdown/FKMultiselect';
 import {industries} from '../../../../constants/optionValues';
 

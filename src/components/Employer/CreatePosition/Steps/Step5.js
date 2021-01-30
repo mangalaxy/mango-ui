@@ -1,7 +1,7 @@
 import React from 'react';
 import './Steps.scss';
 import {Field, useFormikContext} from 'formik';
-import RequiredNotice from '../RequiredNitice';
+import RequiredNotice from '../RequiredNotice';
 
 const Step5 = ({goNext, goPrev}) => {
   const {values, errors, touched}= useFormikContext()

@@ -5,7 +5,7 @@ import TextInput from '../../../Fields/CommonTextInput/TextInput';
 import FKDropdown from '../../../Fields/FKDropdown/FKDropdown';
 import {industries} from '../../../../constants/optionValues';
 import FKRadioGroup from '../../../Fields/FKRadioGroup/FKRadioGroup';
-import RequiredNotice from '../RequiredNitice';
+import RequiredNotice from '../RequiredNotice';
 
 const Step2 = ({goNext, goPrev}) => {
   const {values, errors}= useFormikContext()

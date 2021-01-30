@@ -4,7 +4,7 @@ import {Field, useFormikContext} from 'formik';
 import FKDropdown from '../../../Fields/FKDropdown/FKDropdown';
 import {industries} from '../../../../constants/optionValues';
 import FKRadioGroup from '../../../Fields/FKRadioGroup/FKRadioGroup';
-import RequiredNotice from '../RequiredNitice';
+import RequiredNotice from '../RequiredNotice';
 
 const Step3 = ({goNext, goPrev, cities, countries}) => {
   const {values, errors, touched} = useFormikContext();

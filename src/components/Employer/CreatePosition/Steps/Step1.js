@@ -5,7 +5,7 @@ import TextInput from '../../../Fields/CommonTextInput/TextInput';
 import FKDropdown from '../../../Fields/FKDropdown/FKDropdown';
 import {industries} from '../../../../constants/optionValues';
 import FKMultiselect from '../../../Fields/FKDropdown/FKMultiselect';
-import RequiredNotice from '../RequiredNitice';
+import RequiredNotice from '../RequiredNotice';
 
 const Step1 = ({goNext}) => {
   const {values, errors} = useFormikContext();
