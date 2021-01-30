@@ -26,8 +26,5 @@ export const createPositionInitialValues = {
   'visaSponsorship': false,
   'experienceRequired': '',
   'description': '',
-  'skills': [
-    {
-      'name': '',
-    }],
+  'skills': [],
 };

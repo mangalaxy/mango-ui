@@ -1,1 +1,1 @@
-export const host = 'http://mangostart-env.eba-qjsxjkb7.us-east-2.elasticbeanstalk.com';
+export const host = 'http://mangostart-stage.us-east-2.elasticbeanstalk.com';

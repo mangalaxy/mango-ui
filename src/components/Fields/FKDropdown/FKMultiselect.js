@@ -7,6 +7,7 @@ const FKDropdown = ({
                       placeholder = 'Select...',
                       chip = false,
                       showHeader = false,
+                      multiline = false,
                       field: {
                         name,
                         onBlur,
@@ -18,7 +19,9 @@ const FKDropdown = ({
                         setFieldValue,
                       },
                     }) => (
-    <div className={showHeader ? `fieldMultiselect`: `fieldMultiselect noHeader`}>
+    <div className={showHeader ?
+        `fieldMultiselect` :
+        `fieldMultiselect noHeader`}>
       <MultiSelect
           onChange={e => setFieldValue(name, e.value)}
           onBlur={onBlur(name)}
@@ -27,6 +30,7 @@ const FKDropdown = ({
           placeholder={placeholder}
           display={chip ? 'chip' : 'none'}
           filter
+          className={multiline?"multiline":''}
       />
       <div className="errorContainer">
         {errors[name] && touched[name] &&

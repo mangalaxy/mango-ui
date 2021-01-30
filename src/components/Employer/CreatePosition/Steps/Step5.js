@@ -1,6 +1,7 @@
 import React from 'react';
 import './Steps.scss';
 import {Field, useFormikContext} from 'formik';
+import RequiredNotice from '../RequiredNitice';
 
 const Step5 = ({goNext, goPrev}) => {
   const {values, errors, touched}= useFormikContext()
@@ -8,9 +9,7 @@ const Step5 = ({goNext, goPrev}) => {
   return (
       <>
         <div className='profileBuilderFieldsContainer'>
-          <h5 className='requiredAttention'>
-            All fields are required unless otherwise stated.
-          </h5>
+          <RequiredNotice/>
           <h3 className='profileBuilderTitle'>Experience</h3>
           <Field type='text' name='positionName2'/>
         </div>

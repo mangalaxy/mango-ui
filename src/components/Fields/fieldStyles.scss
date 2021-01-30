@@ -133,9 +133,10 @@
     border-color: #BDBDBD;
     border-radius: 7px;
   }
-.p-inputtext{
-  padding: 8px;
-}
+
+  .p-inputtext {
+    padding: 8px;
+  }
 
   &:active, &:focus {
     border: none !important;
@@ -162,11 +163,32 @@
     border-color: #BDBDBD;
     border-radius: 7px;
 
+    &.multiline {
+      .p-multiselect-label-container {
+        .p-multiselect-label {
+          display: flex;
+          flex-wrap: wrap !important;
+
+          .p-multiselect-token {
+            margin: 3px;
+          }
+        }
+      }
+    }
+
+
     &:not(.p-disabled) {
       &.p-focus {
         box-shadow: none;
       }
     }
+
+    .p-multiselect-header {
+      .p-checkbox {
+        display: none;
+      }
+    }
+
   }
 
   &.noHeader {

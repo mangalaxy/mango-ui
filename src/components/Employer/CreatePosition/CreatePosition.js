@@ -29,7 +29,7 @@ const CreatePosition = () => {
   const [cities, setCities] = useState([]);
   const [locations, setLocations] = useState([]);
 
-  const [activeStep, setActiveStep] = useState(2);
+  const [activeStep, setActiveStep] = useState(3);
 
   useEffect(() => {
     commonService.getLocations().then(res => {
@@ -73,7 +73,7 @@ const CreatePosition = () => {
                     await new Promise(resolve => setTimeout(resolve, 500));
                     alert(JSON.stringify(values, null, 2));
                   }}>
-            <Form style={{width: '100%'}}>
+            <Form style={{width: 'calc(100% - 76px)'}}>
               <div className="contentContainer">
                 {activeStep === 0 && <Step1 goNext={goNext} goPrev={goPrev}/>}
                 {activeStep === 1 && <Step2 goNext={goNext} goPrev={goPrev}/>}

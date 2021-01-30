@@ -4,6 +4,7 @@ import {Field, useFormikContext} from 'formik';
 import FKDropdown from '../../../Fields/FKDropdown/FKDropdown';
 import {industries} from '../../../../constants/optionValues';
 import FKRadioGroup from '../../../Fields/FKRadioGroup/FKRadioGroup';
+import RequiredNotice from '../RequiredNitice';
 
 const Step3 = ({goNext, goPrev, cities, countries}) => {
   const {values, errors, touched} = useFormikContext();
@@ -23,9 +24,7 @@ const Step3 = ({goNext, goPrev, cities, countries}) => {
   return (
       <>
         <div className='profileBuilderFieldsContainer'>
-          <h5 className='requiredAttention'>
-            All fields are required unless otherwise stated.
-          </h5>
+          <RequiredNotice/>
           <h3 className='profileBuilderTitle'>Position location</h3>
           <div className="fieldsContainer">
             <div className="fieldsColumn">

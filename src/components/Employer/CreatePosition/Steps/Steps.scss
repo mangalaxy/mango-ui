@@ -31,6 +31,11 @@
       &:first-of-type{
         padding: 0 10px 0 0;
       }
+      &.fullSize{
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+      }
     }
   }
   .p-inputtext{
