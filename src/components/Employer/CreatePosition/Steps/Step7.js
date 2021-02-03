@@ -2,36 +2,36 @@ import React from 'react';
 import './Steps.scss';
 import {Field, useFormikContext} from 'formik';
 import RequiredNotice from '../RequiredNotice';
-import FKRadioGroup from '../../../Fields/FKRadioGroup/FKRadioGroup';
-import {experienceLevels} from '../../../../constants/optionValues';
+import {industries} from '../../../../constants/optionValues';
+import FKTextAreaInput from '../../../Fields/FKTextAreaInput/FKTextAreaInput';
 
-const Step5 = ({goNext, goPrev}) => {
+const Step7 = ({goNext, goPrev}) => {
   const {values, errors, touched}= useFormikContext()
 
   return (
       <>
         <div className='profileBuilderFieldsContainer'>
           <RequiredNotice/>
-          <h3 className='profileBuilderTitle'>Experience</h3>
+           <h3 className='profileBuilderTitle'>Job description</h3>
           <div className="fieldsContainer">
             <div className="fieldsColumn fullSize">
-              <label className='fieldLabel'>How many years of appropriate experience should candidate have?</label>
+              <label className='fieldLabel'>Description</label>
               <Field
-                  component={FKRadioGroup}
-                  inputClassName='textFiled'
-                  name="experienceRequired"
-                  options={experienceLevels}
+                  component={FKTextAreaInput}
+                  name="description"
+                  placeholder='Job description'
+                  rows={17}
+                  inputClassName='description'
               />
             </div>
           </div>
         </div>
-
         <div className='profileBuilderButtonsContainer'>
           <button  onClick={goPrev} type='button' className='accent-btn__transparent'>
             Previous
             <i className='pi pi-chevron-left'/>
           </button>
-          <button disabled={!(values.experienceRequired)} onClick={goNext} type='button' className='accent-btn'>
+          <button disabled={!(values.description)} onClick={goNext} type='button' className='accent-btn'>
             Next
             <i className='pi pi-chevron-right'/>
           </button>
@@ -40,4 +40,4 @@ const Step5 = ({goNext, goPrev}) => {
   );
 };
 
-export default Step5;
+export default Step7;

@@ -3,7 +3,11 @@ import './Steps.scss';
 import {Field, useFormikContext} from 'formik';
 import TextInput from '../../../Fields/CommonTextInput/TextInput';
 import FKDropdown from '../../../Fields/FKDropdown/FKDropdown';
-import {industries} from '../../../../constants/optionValues';
+import {
+  industries,
+  jobRoles,
+  specializations,
+} from '../../../../constants/optionValues';
 import FKMultiselect from '../../../Fields/FKDropdown/FKMultiselect';
 import RequiredNotice from '../RequiredNotice';
 
@@ -33,7 +37,7 @@ const Step1 = ({goNext}) => {
               <label className='fieldLabel'>Job role</label>
               <Field
                   component={FKDropdown}
-                  options={industries}
+                  options={jobRoles}
                   name="jobRole"
                   placeholder='Roles'
               />
@@ -42,8 +46,8 @@ const Step1 = ({goNext}) => {
                 specialties</label>
               <Field
                   component={FKMultiselect}
-                  options={industries}
-                  name="jobRoleTitle"
+                  options={specializations}
+                  name="jobSpecialities"
                   placeholder='Specialties'
               />
 
@@ -64,7 +68,7 @@ const Step1 = ({goNext}) => {
 
         </div>
         <div className='profileBuilderButtonsContainer'>
-          <button disabled={!isValid()} onClick={goNext} type='button'
+          <button disabled={!(values.title && values.jobRole && values.jobSpecialities.length)} onClick={goNext} type='button'
                   className='accent-btn'>
             Next
             <i className='pi pi-chevron-right'/>

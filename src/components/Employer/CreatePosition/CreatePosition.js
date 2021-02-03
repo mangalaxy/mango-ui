@@ -15,6 +15,7 @@ import {
   createPositionSchema,
 } from '../../../validationSchema/createPositionSchema';
 import commonService from '../../../services/commonService';
+import Step7 from './Steps/Step7';
 
 const CreatePosition = () => {
   const [steps, setSteps] = useState([
@@ -24,12 +25,13 @@ const CreatePosition = () => {
     {complete: false, current: false, label: '4'},
     {complete: false, current: false, label: '5'},
     {complete: false, current: false, label: '6'},
+    {complete: false, current: false, label: '7'},
   ]);
   const [countries, setCountries] = useState([]);
   const [cities, setCities] = useState([]);
   const [locations, setLocations] = useState([]);
 
-  const [activeStep, setActiveStep] = useState(3);
+  const [activeStep, setActiveStep] = useState(0);
 
   useEffect(() => {
     commonService.getLocations().then(res => {
@@ -63,7 +65,7 @@ const CreatePosition = () => {
   return (
       <div className='cretePositionPage'>
         <div className='pageContainer'>
-          {activeStep < 6 && <div className="progressBarContainer">
+          {activeStep < 7 && <div className="progressBarContainer">
             <Timeline value={steps} marker={StepItem}/>
           </div>}
 
@@ -83,7 +85,8 @@ const CreatePosition = () => {
                 {activeStep === 3 && <Step4 goNext={goNext} goPrev={goPrev}/>}
                 {activeStep === 4 && <Step5 goNext={goNext} goPrev={goPrev}/>}
                 {activeStep === 5 && <Step6 goNext={goNext} goPrev={goPrev}/>}
-                {activeStep === 6 &&
+                {activeStep === 6 && <Step7 goNext={goNext} goPrev={goPrev}/>}
+                {activeStep === 7 &&
                 <Confirmation goNext={goNext} goPrev={goPrev}/>}
               </div>
             </Form>

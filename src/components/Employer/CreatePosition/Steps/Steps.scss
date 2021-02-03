@@ -10,10 +10,10 @@
     font-size: 24px;
     margin-bottom: 1em;
     text-transform: uppercase;
-    color: rgba(0, 132, 137, 0.9);
+    color: $secondaryColor;
   }
 
-  .requiredAttention {
+  .requiredAttention, .previewTitle {
     font-family: $font-family-sans-serif;
     font-style: normal;
     font-weight: 300;
@@ -22,26 +22,128 @@
     color: #828282;
     margin-bottom: 3em;
   }
-  .fieldsContainer{
+
+  .fieldsContainer {
     display: flex;
     width: 100%;
-    .fieldsColumn{
+
+    .fieldsColumn {
       width: 50%;
       padding-left: 10px;
-      &:first-of-type{
+
+      &:first-of-type {
         padding: 0 10px 0 0;
       }
-      &.fullSize{
+
+      &.fullSize {
         width: 100%;
         max-width: 100%;
         padding: 0;
       }
     }
   }
-  .p-inputtext{
+
+  .p-inputtext {
     font-size: 15px;
     font-family: $font-family-sans-serif;
+
+    &:enabled {
+      &:focus {
+        box-shadow: none;
+      }
+    }
   }
+
+  .addSkill {
+    .p-inputtext {
+      border-color: #BDBDBD;
+      border-radius: 7px;
+    }
+
+    .skillInput {
+      width: 50%;
+      margin-right: 15px;
+    }
+
+    button {
+      border-radius: 7px;
+      background-color: $secondaryColor;
+      opacity: .8;
+      border: none;
+
+      &:hover {
+        background-color: $secondaryColor;
+        opacity: .8;
+      }
+
+      &:focus {
+        box-shadow: none;
+      }
+
+      &:active {
+        background-color: $secondaryColor;
+        opacity: 1;
+      }
+    }
+  }
+
+  .langItem {
+    display: flex;
+    width: 100%;
+
+    .fieldDropdown {
+      width: 40%;
+      margin-right: 15px;
+    }
+  }
+
+  .addLang, .removeLang {
+    border: none;
+    background-color: transparent;
+    color: $secondaryColor;
+    display: flex;
+    align-items: center;
+
+    .pi {
+      font-size: 30px;
+      margin-right: 10px;
+    }
+
+    &:active {
+      opacity: .8;
+    }
+  }
+
+  .removeLang {
+    color: $COLOR_GREY;
+    height: 38px;
+    opacity: .3;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .description {
+    resize: none;
+  }
+
+  &.preview {
+    .fieldsContainer{
+      margin-bottom: 10px;
+    }
+    .fieldsColumn{
+      width: 25%;
+    }
+    .jobDescription{
+      font-size: 14px;
+      opacity: .8;
+    }
+    p {
+      font-size: 18px;
+    }
+  }
+
 }
 
 .profileBuilderButtonsContainer {
@@ -73,5 +175,6 @@
       left: 10px;
     }
   }
+
 }
 

@@ -1,12 +1,25 @@
-import React from 'react';
+import React, {useRef, useState} from 'react';
 import './Steps.scss';
 import {Field, useFormikContext} from 'formik';
 import RequiredNotice from '../RequiredNotice';
 import FKMultiselect from '../../../Fields/FKDropdown/FKMultiselect';
-import {industries} from '../../../../constants/optionValues';
+import {specializations} from '../../../../constants/optionValues';
+import FKChipsInput from '../../../Fields/FKChipsInput/FKChipsInput';
+import {InputText} from 'primereact/inputtext';
+import {Button} from 'primereact/button';
 
 const Step4 = ({goNext, goPrev}) => {
-  const {values, errors, touched} = useFormikContext();
+  const {values, errors, touched, setFieldValue} = useFormikContext();
+  const [newSkill, setNewSkill] = useState('');
+  const skillInputRef = useRef(null);
+
+  const handleAddSkill = () => {
+    if (newSkill) {
+      setFieldValue('additionalSkills',
+          [...values.additionalSkills || [], newSkill]);
+      setNewSkill('');
+      if(skillInputRef.current?.element)skillInputRef.current.element.focus()}
+  };
 
   return (
       <>
@@ -19,13 +32,26 @@ const Step4 = ({goNext, goPrev}) => {
                 should have?</label>
               <Field
                   component={FKMultiselect}
-                  options={industries}
+                  options={specializations}
                   name="skills"
                   placeholder='Skills'
                   showHeader
                   chip
                   multiline
               />
+
+              <label className='fieldLabel'>Additional skills</label>
+              {!!values.additionalSkills?.length &&<Field
+                  component={FKChipsInput}
+                  name="additionalSkills"
+                  disabled={!values.additionalSkills?.length}
+              />}
+              <div className='addSkill'>
+                <InputText value={newSkill} className='skillInput'
+                           onChange={(e) => setNewSkill(e.target.value)}
+                ref={skillInputRef}/>
+                <Button type='button' label='Add' onClick={handleAddSkill}/>
+              </div>
             </div>
           </div>
         </div>

@@ -3,18 +3,12 @@ import './Steps.scss';
 import {Field, useFormikContext} from 'formik';
 import TextInput from '../../../Fields/CommonTextInput/TextInput';
 import FKDropdown from '../../../Fields/FKDropdown/FKDropdown';
-import {industries} from '../../../../constants/optionValues';
+import {industries, jobTypes} from '../../../../constants/optionValues';
 import FKRadioGroup from '../../../Fields/FKRadioGroup/FKRadioGroup';
 import RequiredNotice from '../RequiredNotice';
 
 const Step2 = ({goNext, goPrev}) => {
   const {values, errors}= useFormikContext()
-  const jobTypes = [
-      'Full Time',
-      'Contract',
-      'Remote',
-      'Part-time'
-  ]
 
   return (
       <>
@@ -31,7 +25,6 @@ const Step2 = ({goNext, goPrev}) => {
                   name="jobType"
                   options={jobTypes}
               />
-
             </div>
             <div className="fieldsColumn"/>
           </div>

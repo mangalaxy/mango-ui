@@ -216,6 +216,22 @@
   }
 }
 
+.fkChips{
+  .p-focus {
+    box-shadow: none !important;
+  }
+  .p-chips{
+    width: 100%;
+    .p-inputtext{
+      width: 100%;
+    }
+  }
+  .p-inputtext{
+    border-color: #BDBDBD;
+    border-radius: 7px;
+  }
+}
+
 .errorLabel {
   font-size: 12px;
   line-height: 12px;
