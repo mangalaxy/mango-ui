@@ -1,0 +1,48 @@
+@import '../../../styles/_variables.scss';
+
+.cretePositionPage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 70px);
+
+  .pageContainer {
+    background-color: white;
+    display: flex;
+    border-radius: 15px;
+    width: 900px;
+    min-width: 60vw;
+    max-width: 80vw;
+
+    .progressBarContainer {
+      padding: 35px 18px;
+      background: linear-gradient(95deg, rgba(82, 200, 205, 0.8) 8.08%, #008489 77.55%), #008489;
+      border-top-left-radius: 15px;
+      border-bottom-left-radius: 15px;
+
+      .p-timeline-event {
+        min-height: 80px;
+      }
+
+      .p-timeline-event-connector {
+        width: 0;
+        border-left: white 2px dotted;
+        background-color: transparent;
+        opacity: .6;
+      }
+
+      .p-timeline-event-opposite, .p-timeline-event-content {
+        padding: 0;
+      }
+    }
+
+    .contentContainer {
+      padding: 25px 50px;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+}

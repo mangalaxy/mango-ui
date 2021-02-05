@@ -19,7 +19,7 @@ const TextInput = ({
                        setFieldValue,
                      },
                    }) => (
-    <div className={`${containerClassName} textInput`}>
+    <div className={`${containerClassName?containerClassName:''} textInput`}>
 
         <InputText
             keyfilter={keyfilter}
@@ -28,6 +28,7 @@ const TextInput = ({
             onBlur={onBlur(name)}
             defaultValue={defaultValue}
             value={value}
+            placeholder={placeholder}
         />
 
       <div className="errorContainer">

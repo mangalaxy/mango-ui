@@ -24,7 +24,8 @@
     "COMPANY": "/employer/company",
     "COMPANY_EDIT": "/employer/company/edit",
     "BOOKMARKED": "/employer/bookmarked/talents",
-    "INTERVIEWS": "/employer/interviews"
+    "INTERVIEWS": "/employer/interviews",
+    "CREATE_POSITION": "/employer/create-position"
   },
   "TALENT": {
     "HOME": "/talent/",

@@ -1,10 +1,14 @@
 @import '../../styles/_variables.scss';
 
 .employer-bg {
-  //background-image: url('../../assets/images/Employer-area/image_map.png');
+  background-image: url('../../assets/images/Employer-area/image_map.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   background-color: $gray-200;
   min-height: 100vh;
+  transition: color 5s ease-in-out;
+  &.white{
+    background-color: white;
+  }
 }

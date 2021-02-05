@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import routes from '../../../constants/routes.json';
 import './EmployerWelcome.scss';
 
 const WelcomePage = ({name, advocateName}) => {
@@ -14,7 +15,7 @@ const WelcomePage = ({name, advocateName}) => {
       </p>
       <p className="welcome-frame-text">Get started your work by creating a new position</p>
       <p className="welcome-frame-sign">Your career advocate, {advocateName}</p>
-      <Link className="welcome-frame-btn" to='/create-job'>Create new position</Link>
+      <Link className="welcome-frame-btn" to={routes.EMPLOYER.CREATE_POSITION}>Create new position</Link>
     </div>
   )
 }

@@ -37,7 +37,7 @@ const LoginFormContainer = ({setRole, history}) => (
             setFieldError('password', 'Incorrect email or password');
           }
         }, err => {
-          console.log(err);
+          console.log(err, typeof err);
           setSubmitting(false);
           setFieldError('password', 'Incorrect email or password');
         });
@@ -48,7 +48,11 @@ const LoginFormContainer = ({setRole, history}) => (
     }
             component={LoginForm}
             validationSchema={loginFormSchema}
-            initialValues={{}}
+            initialValues={{
+              email:'',
+              password:'',
+              rememberMe: false
+            }}
     />
 );
 

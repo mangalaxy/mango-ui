@@ -1,10 +1,13 @@
 import React from 'react';
 import '../fieldStyles.scss';
-import {Dropdown} from 'primereact/dropdown';
+import {MultiSelect} from 'primereact/multiselect';
 
 const FKDropdown = ({
                       options,
-                      placeholder='Select...',
+                      placeholder = 'Select...',
+                      chip = false,
+                      showHeader = false,
+                      multiline = false,
                       field: {
                         name,
                         onBlur,
@@ -16,13 +19,18 @@ const FKDropdown = ({
                         setFieldValue,
                       },
                     }) => (
-    <div className={`fieldDropdown`}>
-      <Dropdown
+    <div className={showHeader ?
+        `fieldMultiselect` :
+        `fieldMultiselect noHeader`}>
+      <MultiSelect
           onChange={e => setFieldValue(name, e.value)}
           onBlur={onBlur(name)}
           value={value}
           options={options}
           placeholder={placeholder}
+          display={chip ? 'chip' : 'none'}
+          filter
+          className={multiline?"multiline":''}
       />
       <div className="errorContainer">
         {errors[name] && touched[name] &&
