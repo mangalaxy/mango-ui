@@ -64,5 +64,7 @@
   },
   "plugins": [
     "@babel/plugin-proposal-optional-chaining"
-  ]
+  ],
+
+  "proxy": "http://mangostart-stage.us-east-2.elasticbeanstalk.com"
 }

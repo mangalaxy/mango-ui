@@ -16,6 +16,7 @@ import {useLocation} from 'react-router';
 import employerService from '../../services/employerService';
 import CreatePosition
   from '../../components/Employer/CreatePosition/CreatePosition';
+import Preloader from '../../components/Preloader/Preloader';
 
 const EmployerPage = () => {
   const [user, setUser] = useState();
@@ -34,15 +35,16 @@ const EmployerPage = () => {
     });
   }, []);
 
+  if (!user) return <Preloader/>
 
   return (
-      <div className={lightTheme?"employer-bg white":"employer-bg"}>
+      <div className={lightTheme?"employer-bg employer-bg__white":"employer-bg"}>
         <EmployerMenu user={user}/>
         <div id='dialog-container'/>
         <Switch>
           <Route exact path={routes.EMPLOYER.POSITIONS}
                  component={EmployersPositions}/>
-          <Route exact path={routes.EMPLOYER.COMPANY} component={CompanyPage}/>
+          <Route exact path={routes.EMPLOYER.COMPANY} component={()=><CompanyPage user={user}/>}/>
           <Route exact path={routes.EMPLOYER.COMPANY_EDIT}
                  component={CompanyEditPage}/>
           <Route exact path={routes.EMPLOYER.BOOKMARKED}
