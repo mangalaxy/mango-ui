@@ -13,7 +13,7 @@ const Promo = ({src}) => {
   )
 }
 
-const CompanyBody = ({name, promo, about, images}) => {
+const CompanyBody = ({name, promo, about, images = []}) => {
   return (
         <section className="company-details md-8of12">
           {promo && <Promo src={promo}/>}

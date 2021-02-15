@@ -8,7 +8,9 @@
   background-color: $gray-200;
   min-height: 100vh;
   transition: color 5s ease-in-out;
-  &.white{
+
+  &__white{
     background-color: white;
+    background-image: unset;
   }
 }
