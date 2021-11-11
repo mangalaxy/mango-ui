@@ -16,6 +16,10 @@
         background-color: $gray-600;
       }
 
+      &--purple {
+        background-color: $brand-color;
+      }
+
       &:nth-child(2n) {
         margin: 7px 0;
       }
